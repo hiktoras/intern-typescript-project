@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans&family=Manrope:wght@500&family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&family=Overpass&display=swap");
+
+.tableHead {
+  align-items: center;
+}
+
+.tableHeadRow {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.2px;
+  color: #718096;
+}
+
+.name {
+  width: 236px;
+  height: 24px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+}
+
+.date {
+  width: 180px;
+  height: 24px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+}
+
+.time {
+  width: 180px;
+  height: 21px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #718096;
+}
+
+.business {
+  width: 236px;
+  height: 21px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #718096;
+}
+
+.invoiceId {
+  width: 157.5px;
+  height: 24px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #1a202c;
+}
+
+.amount {
+  width: 157.5px;
+  height: 24px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 150%;
+  color: #1a202c;
+}
+
+.status {
+  width: 55px;
+  height: 21px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  color: #ff784b;
+}
+.statusBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 4px;
+  width: 96px;
+  height: 40px;
+  background: #fff7f5;
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.details {
+  width: 96px;
+  height: 40px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+  background-color: #fff;
+  border: 1px solid #edf2f7;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
+.selectedButton {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  gap: 8px;
+  width: 103px;
+  height: 48px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  color: #194bfb;
+}
+.unselectedButton {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  gap: 8px;
+  width: 113px;
+  height: 48px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fafafa;
+}
+.priceFilter {
+  position: relative;
+}
+
+.priceFilterDropdownContainer {
+  position: absolute;
+  left: 0;
+  top: 100%; /* Sayfanın alt kısmına göre ayarlayın */
+  width: 274px;
+}
+
+.priceFilterDropdown {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 16px;
+}

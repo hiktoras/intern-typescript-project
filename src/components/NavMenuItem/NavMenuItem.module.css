@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans&family=Manrope:wght@500&family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&family=Overpass&display=swap");
+
+.navMenuItem,
+.selectedNavMenuItem {
+  width: 202px;
+  height: 47px;
+
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+
+  margin-bottom: 15px;
+}
+
+.navMenuItem {
+  color: #718096;
+}
+
+.selectedNavMenuItem {
+  color: white;
+  margin-bottom: 30px;
+  background: #194bfb;
+  border-radius: 12px;
+}
+
+.navText {
+  padding-left: 10px;
+}
+
+.subNav {
+  border-left: 1px solid #e2e8f0;
+  padding-left: -10px;
+}
