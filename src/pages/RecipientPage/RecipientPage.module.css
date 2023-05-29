@@ -1,0 +1,27 @@
+.logo {
+  border-bottom: 1px solid #e2e8f0;
+  width: 202px;
+  padding-top: 44px;
+  padding-left: 37px;
+  padding-bottom: 32px;
+}
+
+.sidebar {
+  width: 250px;
+  height: 1024px;
+  border-right: 1px solid #e2e8f0;
+  background: #fafafa;
+}
+
+.footer {
+  margin-top: 250px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+}

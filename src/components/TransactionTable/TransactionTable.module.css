@@ -1,7 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans&family=Manrope:wght@500&family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&family=Overpass&display=swap");
-
-.tableHead {
+.tableHeadButton {
   align-items: center;
+  color: #718096;
+  background-color: white;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 150%;
+  overflow: visible;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.tableHead {
+  text-align: left;
 }
 
 .tableHeadRow {
@@ -100,7 +112,39 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 150%;
+}
+
+.pendingStatusBox,
+.failedStatusBox,
+.successStatusBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: right;
+  letter-spacing: 0.2px;
+  padding: 8px;
+  gap: 4px;
+  width: 96px;
+  height: 40px;
+  border-radius: 8px;
+  margin-right: 30px;
+  position: relative;
+  right: 20px;
+  top: 15px;
+}
+
+.failedStatusBox {
+  background: #fff5f5;
+  color: #ff4747;
+}
+.pendingStatusBox {
   color: #ff784b;
+  background: #fff7f5;
+}
+.successStatusBox {
+  background: #f6fdf9;
+  color: #22c55e;
 }
 .statusBox {
   display: flex;
@@ -186,4 +230,23 @@
   background-color: white;
   border: 1px solid #ccc;
   padding: 16px;
+}
+
+.tableElement {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchFilters {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40px;
+  margin-top: 40px;
+}
+
+.table {
+  gap: 8px;
+  width: 1200px;
+  margin-left: 40px;
+  margin-top: 40px;
 }

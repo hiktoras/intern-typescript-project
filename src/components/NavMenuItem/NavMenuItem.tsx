@@ -51,7 +51,9 @@ const NavMenuItem = ({ navMenuData }: NavMenuItemProps) => {
       </li>
       <ul className={styles.subNav}>
         {navMenuData.subNavMenu.map((subNavMenu) => (
-          <li>{subNavMenu}</li>
+          <li>
+            <a href={subNavMenu.address}>{subNavMenu.name}</a>
+          </li>
         ))}
       </ul>
     </>

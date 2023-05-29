@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
+.pageName {
+}
+
+.headerTools {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 750px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 8px;
+  gap: 18px;
+  width: 163px;
+  height: 48px;
+  background: #fafafa;
+  border-radius: 1000px;
+}
+.vector {
+  position: relative;
+  left: 10px;
+}

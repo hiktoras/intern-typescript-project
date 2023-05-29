@@ -2,6 +2,34 @@ import { TransactionData } from "../../types";
 import styles from "./TransactionTable.module.css";
 import { useState, useEffect } from "react";
 import { ReactComponent as ArrowsIcon } from "../../assets/icons/arrows.svg";
+import { accessSync } from "fs";
+import { ReactComponent as StripeIcon } from "../../assets/icons/stripe.svg";
+import { ReactComponent as BitcoinIcon } from "../../assets/icons/bitcoin.svg";
+import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook.svg";
+import { ReactComponent as UpworkIcon } from "../../assets/icons/upwork.svg";
+import Antonio from "../../assets/images/antonio.jpg";
+import { ReactComponent as BankOfAmericaIcon } from "../../assets/icons/bank-of-america.svg";
+import { ReactComponent as UI8Icon } from "../../assets/icons/UI8.svg";
+
+const Icon = (text: string) => {
+  switch (text) {
+    case "stripe":
+      return <StripeIcon />;
+    case "bitcoin":
+      return <BitcoinIcon />;
+    case "facebook":
+      return <FacebookIcon />;
+    case "upwork":
+      return <UpworkIcon />;
+    case "antonio":
+      return <img src={Antonio} alt="antonio" />;
+
+    case "bank":
+      return <BankOfAmericaIcon />;
+    case "UI8":
+      return <UI8Icon />;
+  }
+};
 
 export interface TransactionProps {
   transactionDataList: TransactionData[];
@@ -20,6 +48,9 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
   const [maxPrice, setMaxPrice] = useState("");
   const [isAmountFiltered, setIsAmountFiltered] = useState(false);
   const [sortName, setSortName] = useState("inactive");
+  const [sortAmount, setSortAmount] = useState("inactive");
+  const [sortStatus, setSortStatus] = useState("inactive");
+
   const typeOptions = [
     "All Transactions",
     "Witdraw",
@@ -93,6 +124,54 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
     setIsOpen(false);
   };
 
+  const handleSortName = () => {
+    switch (sortName) {
+      case "asc":
+        setSortName("desc");
+        break;
+
+      case "desc":
+        setSortName("inactive");
+        break;
+
+      case "inactive":
+        setSortName("asc");
+        break;
+    }
+  };
+
+  const handleSortAmount = () => {
+    switch (sortAmount) {
+      case "asc":
+        setSortAmount("desc");
+        break;
+
+      case "desc":
+        setSortAmount("inactive");
+        break;
+
+      case "inactive":
+        setSortAmount("asc");
+        break;
+    }
+  };
+
+  const handleSortStatus = () => {
+    switch (sortStatus) {
+      case "asc":
+        setSortStatus("desc");
+        break;
+
+      case "desc":
+        setSortStatus("inactive");
+        break;
+
+      case "inactive":
+        setSortStatus("asc");
+        break;
+    }
+  };
+
   const filteredList = transactionDataList
     .filter((item) => {
       if (filterTransactionType !== "All Transactions") {
@@ -114,11 +193,42 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
       }
       return item.name.includes(filterText);
     })
-    .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
+    .sort((a, b) => {
+      if (sortName === "asc") {
+        return a.name >= b.name ? 1 : -1;
+      }
+      if (sortName === "desc") {
+        return a.name >= b.name ? -1 : 1;
+      }
+
+      return 0;
+    })
+
+    .sort((a, b) => {
+      if (sortAmount === "asc") {
+        return a.amount >= b.amount ? 1 : -1;
+      }
+      if (sortAmount === "desc") {
+        return a.amount >= b.amount ? -1 : 1;
+      }
+
+      return 0;
+    })
+
+    .sort((a, b) => {
+      if (sortStatus === "asc") {
+        return a.status >= b.status ? 1 : -1;
+      }
+      if (sortStatus === "desc") {
+        return a.status >= b.status ? -1 : 1;
+      }
+
+      return 0;
+    });
 
   return (
     <>
-      <div className={styles.header}>
+      <div className={styles.searchFilters}>
         <input
           type="text"
           value={filterText}
@@ -213,19 +323,48 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
         </div>
       )}
 
-      <table>
+      <table className={styles.table}>
         <thead>
           <tr className={styles.tableHeadRow}>
             <th className={styles.tableHead}>
-              <button>
+              <button
+                className={styles.tableHeadButton}
+                onClick={handleSortName}
+              >
                 Name/Business <ArrowsIcon />
               </button>
             </th>
-            <th className={styles.tableHead}>Date</th>
-            <th className={styles.tableHead}>Invoice ID</th>
-            <th className={styles.tableHead}>Amount</th>
-            <th className={styles.tableHead}>Status</th>
-            <th className={styles.tableHead}>Actions</th>
+            <th className={styles.tableHead}>
+              <button className={styles.tableHeadButton}>
+                Date <ArrowsIcon />
+              </button>
+            </th>
+            <th className={styles.tableHead}>
+              <button className={styles.tableHeadButton}>
+                Invoice ID <ArrowsIcon />
+              </button>
+            </th>
+            <th className={styles.tableHead}>
+              <button
+                className={styles.tableHeadButton}
+                onClick={handleSortAmount}
+              >
+                Amount <ArrowsIcon />
+              </button>
+            </th>
+
+            <th className={styles.tableHead}>
+              <button
+                className={styles.tableHeadButton}
+                onClick={handleSortStatus}
+              >
+                Status
+                <ArrowsIcon />
+              </button>
+            </th>
+            <th className={styles.tableHead}>
+              <button className={styles.tableHeadButton}>Actions</button>
+            </th>
           </tr>
         </thead>
 
@@ -233,8 +372,13 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
           {filteredList.map((nData) => (
             <tr>
               <td>
-                <p className={styles.name}>{nData.name}</p>
-                <p className={styles.business}>{nData.business}</p>
+                <div className={styles.tableElement}>
+                  <div className={styles.iconBox}>{Icon(nData.imageName)}</div>
+                  <div>
+                    <p className={styles.name}>{nData.name}</p>
+                    <p className={styles.business}>{nData.business}</p>
+                  </div>
+                </div>
               </td>
               <td>
                 <p className={styles.date}>{nData.date}</p>
@@ -242,7 +386,15 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
               </td>
               <td className={styles.invoiceId}>{nData.invoiceId}</td>
               <td className={styles.amount}>{nData.amount}</td>
-              <td className={styles.statusBox}>
+              <td
+                className={
+                  nData.status === "Success"
+                    ? styles.successStatusBox
+                    : nData.status === "Failed"
+                    ? styles.failedStatusBox
+                    : styles.pendingStatusBox
+                }
+              >
                 <p className={styles.status}>{nData.status}</p>
               </td>
               <td>
