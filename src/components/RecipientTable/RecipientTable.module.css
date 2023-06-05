@@ -1,0 +1,176 @@
+.tableHeadButton {
+  align-items: center;
+  color: #718096;
+  background-color: white;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 150%;
+  overflow: visible;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.tableHead {
+  text-align: left;
+}
+
+.tableHeadRow {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.2px;
+  color: #718096;
+}
+
+.name {
+  width: 216px;
+  height: 24px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+}
+
+.email {
+  width: 280px;
+  height: 24px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+}
+
+.accountType {
+  width: 71px;
+  height: 24px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+}
+
+.currency {
+  width: 33px;
+  height: 24px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+}
+
+.date {
+  width: 230px;
+  height: 24px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.selectedButton {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  gap: 8px;
+  width: 103px;
+  height: 48px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  color: #194bfb;
+}
+.unselectedButton {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  gap: 8px;
+  width: 113px;
+  height: 48px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.addNew {
+  gap: 4px;
+  background: #194bfb;
+  border-radius: 12px;
+  color: #fff;
+  margin-left: auto;
+}
+.priceFilter {
+  position: relative;
+}
+
+.priceFilterDropdownContainer {
+  position: absolute;
+  left: 0;
+  top: 100%; /* Sayfanın alt kısmına göre ayarlayın */
+  width: 274px;
+}
+
+.priceFilterDropdown {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 16px;
+}
+
+.tableElement {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchFilters {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40px;
+  margin-top: 40px;
+}
+
+.table {
+  gap: 8px;
+  width: 1200px;
+  margin-left: 40px;
+  margin-top: 40px;
+}

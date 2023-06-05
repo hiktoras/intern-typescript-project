@@ -8,7 +8,7 @@ import { ReactComponent as MessagesIcon } from "../../assets/icons/messages.svg"
 import { ReactComponent as MyWalletsIcon } from "../../assets/icons/my-wallets.svg";
 import { ReactComponent as GetHelpIcon } from "../../assets/icons/get-help.svg";
 import { ReactComponent as SettingsIcon } from "../../assets/icons/settings.svg";
-import { Fragment } from "react";
+import { ReactComponent as UpVectorIcon } from "../../assets/icons/upvector.svg";
 
 const Icon = (text: string) => {
   switch (text) {
@@ -48,11 +48,17 @@ const NavMenuItem = ({ navMenuData }: NavMenuItemProps) => {
         <div className={styles.iconBox}>{Icon(navMenuData.iconName)}</div>
 
         <p className={styles.navText}>{navMenuData.name}</p>
+        {navMenuData.name === "Messages" && (
+          <div className={styles.messageCount}>5</div>
+        )}
+        {navMenuData.subNavMenu.length > 0 && <UpVectorIcon />}
       </li>
       <ul className={styles.subNav}>
         {navMenuData.subNavMenu.map((subNavMenu) => (
           <li>
-            <a href={subNavMenu.address}>{subNavMenu.name}</a>
+            <a className={styles.subNavLink} href={subNavMenu.address}>
+              {subNavMenu.name}
+            </a>
           </li>
         ))}
       </ul>

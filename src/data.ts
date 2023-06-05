@@ -168,7 +168,7 @@ export const transactionDataList: TransactionData[] = [
 export const RecipientDataList: RecipientData[] = [
   {
     name: "Guy Hawkins",
-    imageName: "",
+    imageName: "guy",
     email: "guy.hawkins@mail.com",
     accountType: "Business",
     currency: "USD",
@@ -176,15 +176,15 @@ export const RecipientDataList: RecipientData[] = [
   },
   {
     name: "Roselle Ehrman",
-    imageName: "",
+    imageName: "roselle",
     email: "roselleehrman@mail.com",
     accountType: "Personal",
     currency: "GBP",
     date: "20 Jan 2022, 07.00 PM",
   },
   {
-    name: "Mariel Wiging",
-    imageName: "",
+    name: "Marielle Wiging",
+    imageName: "marielle",
     email: "wiging_marie@mail.com",
     accountType: "Personal",
     currency: "EUR",
@@ -192,7 +192,7 @@ export const RecipientDataList: RecipientData[] = [
   },
   {
     name: "Cyndy Lillibridge",
-    imageName: "",
+    imageName: "cyndy",
     email: "cindylilibridge@mail.com",
     accountType: "Business",
     currency: "EUR",
@@ -200,7 +200,7 @@ export const RecipientDataList: RecipientData[] = [
   },
   {
     name: "Darcel Ballentine",
-    imageName: "",
+    imageName: "darcel",
     email: "darcelballenti@mail.com",
     accountType: "Personal",
     currency: "EUR",
@@ -208,7 +208,7 @@ export const RecipientDataList: RecipientData[] = [
   },
   {
     name: "Tanner Stafford",
-    imageName: "",
+    imageName: "tanner",
     email: "stafford.tenn@mail.com",
     accountType: "Business",
     currency: "GBP",
@@ -216,7 +216,7 @@ export const RecipientDataList: RecipientData[] = [
   },
   {
     name: "Francene Vandyne",
-    imageName: "",
+    imageName: "francene",
     email: "vandyne0090@mail.com",
     accountType: "Business",
     currency: "USD",
@@ -224,7 +224,7 @@ export const RecipientDataList: RecipientData[] = [
   },
   {
     name: "Elmer Laverty",
-    imageName: "",
+    imageName: "elmer",
     email: "guy.hawkins@mail.com",
     accountType: "Personal",
     currency: "GBP",

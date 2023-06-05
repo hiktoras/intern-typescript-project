@@ -4,13 +4,11 @@
 .selectedNavMenuItem {
   width: 202px;
   height: 47px;
-
   font-family: "Manrope";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 150%;
-
   display: flex;
   align-items: center;
   letter-spacing: 0.2px;
@@ -36,4 +34,28 @@
 .subNav {
   border-left: 1px solid #e2e8f0;
   padding-left: -10px;
+}
+
+.subNavLink {
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  color: #718096;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.messageCount {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  margin-left: 40px;
+  width: 10px;
+  height: 10px;
+  background: #1a202c;
+  border-radius: 1000px;
 }

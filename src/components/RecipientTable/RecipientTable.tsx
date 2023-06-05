@@ -1,14 +1,58 @@
 import { RecipientData } from "../../types";
 import styles from "./RecipientTable.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ReactComponent as ArrowsIcon } from "../../assets/icons/arrows.svg";
-import { accessSync } from "fs";
+import Guy from "../../assets/images/guy.jpg";
+import Roselle from "../../assets/images/roselle.jpg";
+import Marielle from "../../assets/images/marielle.jpg";
+import Cyndy from "../../assets/images/cyndy.jpg";
+import Darcel from "../../assets/images/darcel.jpg";
+import Tanner from "../../assets/images/tanner.jpg";
+import Francene from "../../assets/images/francene.jpg";
+import Elmer from "../../assets/images/elmer.jpg";
+import NewRecipient from "../NewRecipient/NewRecipient";
+import USD from "../../assets/images/usd.jpg";
+import EUR from "../../assets/images/eur.jpg";
+import GBP from "../../assets/images/gbp.jpg";
+
+const Icon = (text: string) => {
+  switch (text) {
+    case "guy":
+      return <img src={Guy} alt="guy" />;
+    case "roselle":
+      return <img src={Roselle} alt="antonio" />;
+    case "marielle":
+      return <img src={Marielle} alt="antonio" />;
+    case "cyndy":
+      return <img src={Cyndy} alt="antonio" />;
+    case "darcel":
+      return <img src={Darcel} alt="antonio" />;
+    case "tanner":
+      return <img src={Tanner} alt="antonio" />;
+    case "francene":
+      return <img src={Francene} alt="antonio" />;
+    case "elmer":
+      return <img src={Elmer} alt="antonio" />;
+  }
+};
+
+const CurIcon = (text: string) => {
+  switch (text) {
+    case "EUR":
+      return <img src={EUR} alt="guy" />;
+    case "USD":
+      return <img src={USD} alt="antonio" />;
+    case "GBP":
+      return <img src={GBP} alt="antonio" />;
+  }
+};
 
 export interface RecipientProps {
   RecipientDataList: RecipientData[];
 }
 
 const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
+  const [recipientData, setRecipientData] = useState(RecipientDataList);
   const [filterText, setFilterText] = useState("");
   const [filterAccountType, setFilterAccountType] =
     useState("All Account Types");
@@ -17,7 +61,7 @@ const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
   const [sortName, setSortName] = useState("inactive");
   const [sortAmount, setSortAmount] = useState("inactive");
   const [sortStatus, setSortStatus] = useState("inactive");
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const typeOptions = ["All Account Types", "Personal", "Business"];
 
   const currencyOptions = ["USD", "EUR", "GBP"];
@@ -90,8 +134,14 @@ const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
         break;
     }
   };
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
 
-  const filteredList = RecipientDataList.filter((item) => {
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+  const filteredList = recipientData.filter((item) => {
     if (filterAccountType !== "All Account Types") {
       return item.accountType === filterAccountType;
     }
@@ -105,6 +155,13 @@ const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
 
   return (
     <>
+      {isModalOpen && (
+        <NewRecipient
+          currencyOptions={currencyOptions}
+          onClose={handleCloseModal}
+        />
+      )}
+
       <div className={styles.header}>
         <input
           type="text"
@@ -112,6 +169,9 @@ const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
           onChange={handleChange}
           placeholder="Search for transactions..."
         />
+        <button className={styles.addNew} onClick={handleOpenModal}>
+          + Add New
+        </button>
         <button
           onClick={handleFiltersButtonClick}
           className={
@@ -122,7 +182,6 @@ const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
         >
           Filters
         </button>
-        <button className={styles.unselectedButton}>Exports</button>
       </div>
       {isFiltersButtonSelected && (
         <div className={styles.tablefilter}>
@@ -143,34 +202,34 @@ const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
         </div>
       )}
 
-      <table>
+      <table className={styles.table}>
         <thead>
           <tr className={styles.tableHeadRow}>
             <th className={styles.tableHead}>
-              <button onClick={handleSortName}>
+              <button className={styles.tableHeadButton}>
                 Name/Business <ArrowsIcon />
               </button>
             </th>
 
             <th className={styles.tableHead}>
-              <button>
+              <button className={styles.tableHeadButton}>
                 Email <ArrowsIcon />
               </button>
             </th>
             <th className={styles.tableHead}>
-              <button>
+              <button className={styles.tableHeadButton}>
                 Account Type
                 <ArrowsIcon />
               </button>
             </th>
             <th className={styles.tableHead}>
-              <button onClick={handleSortAmount}>
+              <button className={styles.tableHeadButton}>
                 Currency <ArrowsIcon />
               </button>
             </th>
 
             <th className={styles.tableHead}>
-              <button onClick={handleSortStatus}>
+              <button className={styles.tableHeadButton}>
                 Date
                 <ArrowsIcon />
               </button>
@@ -181,19 +240,24 @@ const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
         <tbody>
           {filteredList.map((nData) => (
             <tr>
+              <div className={styles.iconBox}>{Icon(nData.imageName)}</div>
+
               <td>
                 <p className={styles.name}>{nData.name}</p>
               </td>
               <td>
-                <p className={styles.date}>{nData.email}</p>
-              </td>
-              <td className={styles.invoiceId}>{nData.accountType}</td>
-              <td className={styles.amount}>{nData.currency}</td>
-              <td className={styles.statusBox}>
-                <p className={styles.status}>{nData.date}</p>
+                <p className={styles.email}>{nData.email}</p>
               </td>
               <td>
-                <button className={styles.details}>Details</button>
+                <p className={styles.accountType}>{nData.accountType}</p>
+              </td>
+              <td>
+                <p className={styles.currency}>
+                  {CurIcon(nData.currency)} {nData.currency}
+                </p>
+              </td>
+              <td>
+                <p className={styles.date}>{nData.date}</p>
               </td>
             </tr>
           ))}

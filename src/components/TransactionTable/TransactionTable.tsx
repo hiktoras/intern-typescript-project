@@ -1,8 +1,7 @@
 import { TransactionData } from "../../types";
 import styles from "./TransactionTable.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ReactComponent as ArrowsIcon } from "../../assets/icons/arrows.svg";
-import { accessSync } from "fs";
 import { ReactComponent as StripeIcon } from "../../assets/icons/stripe.svg";
 import { ReactComponent as BitcoinIcon } from "../../assets/icons/bitcoin.svg";
 import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook.svg";
@@ -10,6 +9,7 @@ import { ReactComponent as UpworkIcon } from "../../assets/icons/upwork.svg";
 import Antonio from "../../assets/images/antonio.jpg";
 import { ReactComponent as BankOfAmericaIcon } from "../../assets/icons/bank-of-america.svg";
 import { ReactComponent as UI8Icon } from "../../assets/icons/UI8.svg";
+import TransactionDetails from "../TransactionDetails/TransactionDetails";
 
 const Icon = (text: string) => {
   switch (text) {
@@ -23,7 +23,6 @@ const Icon = (text: string) => {
       return <UpworkIcon />;
     case "antonio":
       return <img src={Antonio} alt="antonio" />;
-
     case "bank":
       return <BankOfAmericaIcon />;
     case "UI8":
@@ -36,7 +35,7 @@ export interface TransactionProps {
 }
 
 const TransactionTable = ({ transactionDataList }: TransactionProps) => {
-  const [filterText, setFilterText] = useState("");
+  const [filterText, setFilterText] = useState(""); //
   const [filterTransactionType, setFilterTransactionType] =
     useState("All Transactions");
   const [filterStatus, setFilterStatus] = useState("All Statuses");
@@ -50,6 +49,7 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
   const [sortName, setSortName] = useState("inactive");
   const [sortAmount, setSortAmount] = useState("inactive");
   const [sortStatus, setSortStatus] = useState("inactive");
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const typeOptions = [
     "All Transactions",
@@ -172,6 +172,14 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
     }
   };
 
+  const handleDrawerOpen = () => {
+    setIsDrawerOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setIsDrawerOpen(false);
+  };
+
   const filteredList = transactionDataList
     .filter((item) => {
       if (filterTransactionType !== "All Transactions") {
@@ -230,6 +238,7 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
     <>
       <div className={styles.searchFilters}>
         <input
+          className={styles.searchBox}
           type="text"
           value={filterText}
           onChange={handleChange}
@@ -370,7 +379,7 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
 
         <tbody>
           {filteredList.map((nData) => (
-            <tr>
+            <tr className={styles.tableRowBox}>
               <td>
                 <div className={styles.tableElement}>
                   <div className={styles.iconBox}>{Icon(nData.imageName)}</div>
@@ -398,12 +407,15 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
                 <p className={styles.status}>{nData.status}</p>
               </td>
               <td>
-                <button className={styles.details}>Details</button>
+                <button onClick={handleDrawerOpen} className={styles.details}>
+                  Details
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <TransactionDetails isOpen={isDrawerOpen} onClose={handleDrawerClose} />
     </>
   );
 };

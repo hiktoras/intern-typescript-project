@@ -22,9 +22,6 @@ function TransactionPage() {
         <section>
           <NavMenu navMenuDataList={topNavMenuDataList} />
         </section>
-        <footer className={styles.footer}>
-          <NavMenu navMenuDataList={bottomNavMenuDataList} />
-        </footer>
       </aside>
       <div className={styles.middle}>
         <header>
@@ -33,6 +30,9 @@ function TransactionPage() {
         <main>
           <TransactionTable transactionDataList={transactionDataList} />
         </main>
+        <footer className={styles.footer}>
+          <NavMenu navMenuDataList={bottomNavMenuDataList} />
+        </footer>
       </div>
     </section>
   );

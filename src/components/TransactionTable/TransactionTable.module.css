@@ -222,7 +222,7 @@
 .priceFilterDropdownContainer {
   position: absolute;
   left: 0;
-  top: 100%; /* Sayfanın alt kısmına göre ayarlayın */
+  top: 100%;
   width: 274px;
 }
 
@@ -248,5 +248,19 @@
   gap: 8px;
   width: 1200px;
   margin-left: 40px;
-  margin-top: 40px;
+  margin-top: 30px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.iconBox {
+  position: relative;
+  top: 16px;
+  right: 16px;
+}
+
+.searchBox {
+  margin-right: auto;
+}
+.tableRowBox {
+  border-top: 1px solid #edf2f7;
 }

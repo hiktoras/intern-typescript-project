@@ -15,7 +15,6 @@ function RecipientPage() {
   return (
     <section className={styles.main}>
       <aside className={styles.sidebar}>
-        <p> RecipientPage</p>
         <header className={styles.logo}>
           <CategoryIconNew />
         </header>
@@ -26,12 +25,14 @@ function RecipientPage() {
           <NavMenu navMenuDataList={bottomNavMenuDataList} />
         </footer>
       </aside>
-      <header>
-        <Header pageName="Recipients" userData={UserInfoData} />
-      </header>
-      <main>
-        <RecipientTable RecipientDataList={RecipientDataList} />
-      </main>
+      <div>
+        <header>
+          <Header pageName="Recipients" userData={UserInfoData} />
+        </header>
+        <main>
+          <RecipientTable RecipientDataList={RecipientDataList} />
+        </main>
+      </div>
     </section>
   );
 }

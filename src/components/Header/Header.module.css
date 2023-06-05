@@ -1,16 +1,25 @@
 .header {
   display: flex;
   flex-direction: row;
+  margin-top: 29px;
+  margin-left: 40px;
 }
 
 .pageName {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  color: #1a202c;
+  margin: 0px;
 }
 
 .headerTools {
   display: flex;
   flex-direction: row;
-  position: absolute;
-  left: 750px;
+  margin-left: auto;
 }
 
 .userInfo {

@@ -1,0 +1,49 @@
+.closeRightDrawer,
+.openRightDrawer {
+  position: fixed;
+  top: 0;
+  width: 449px;
+  height: 100vh;
+  background-color: #fff;
+  transition: right 0.3s ease-in-out;
+  background: #ffffff;
+  box-shadow: -25px 25px 50px rgba(93, 106, 131, 0.04);
+}
+
+.openRightDrawer {
+  right: 0;
+}
+.closeRightDrawer {
+  right: -449px;
+}
+
+.right-drawer-content {
+  padding: 16px;
+}
+
+.right-drawer-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.detailsHeader {
+  /* margin-top: 0px;
+  margin-left: 0px; */
+  margin: 0px 10px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  letter-spacing: 0.5px;
+}
+
+.topRow {
+  display: flex;
+  flex-direction: row;
+  margin: 32px;
+}
+.topRowRight {
+  margin-left: auto;
+}
