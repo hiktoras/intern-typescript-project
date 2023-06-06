@@ -1,17 +1,18 @@
-import "./RecipientPage.module.css";
-import styles from "./RecipientPage.module.css";
+import styles from "./Layout.module.css";
 import NavMenu from "../../components/NavMenu/NavMenu";
+import { NavMenuData, TransactionData } from "../../types";
 import { ReactComponent as CategoryIconNew } from "../../assets/images/Logo.svg";
-import RecipientTable from "../../components/RecipientTable/RecipientTable";
+import TransactionTable from "../../components/TransactionTable/TransactionTable";
 import Header from "../../components/Header/Header";
 import {
   bottomNavMenuDataList,
-  RecipientDataList,
   topNavMenuDataList,
+  transactionDataList,
   UserInfoData,
 } from "../../data";
+import { Outlet } from "react-router-dom";
 
-function RecipientPage() {
+function Layout() {
   return (
     <section className={styles.main}>
       <aside className={styles.sidebar}>
@@ -21,20 +22,20 @@ function RecipientPage() {
         <section>
           <NavMenu navMenuDataList={topNavMenuDataList} />
         </section>
+      </aside>
+      <div className={styles.middle}>
+        <header>
+          <Header userData={UserInfoData} />
+        </header>
+        <main>
+          <Outlet />
+        </main>
         <footer className={styles.footer}>
           <NavMenu navMenuDataList={bottomNavMenuDataList} />
         </footer>
-      </aside>
-      <div>
-        <header>
-          <Header pageName="Recipients" userData={UserInfoData} />
-        </header>
-        <main>
-          <RecipientTable RecipientDataList={RecipientDataList} />
-        </main>
       </div>
     </section>
   );
 }
 
-export default RecipientPage;
+export default Layout;

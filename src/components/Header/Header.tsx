@@ -6,6 +6,7 @@ import { ReactComponent as NotificationsIcon } from "../../assets/icons/notifica
 import { ReactComponent as VectorIcon } from "../../assets/icons/vector.svg";
 
 import Alesia from "../../assets/images/alesia.jpg";
+import { useLocation } from "react-router-dom";
 
 const Image = (text: string) => {
   switch (text) {
@@ -14,15 +15,25 @@ const Image = (text: string) => {
   }
 };
 
+const GetPageName = (path: string) => {
+  switch (path) {
+    case "/recipients":
+      return "Recipients";
+
+    case "/transactions":
+      return "Transactions";
+  }
+};
+
 export interface HeaderProps {
   userData: UserData;
-  pageName: string;
 }
 
-const Header = ({ userData, pageName }: HeaderProps) => {
+const Header = ({ userData }: HeaderProps) => {
+  const location = useLocation();
   return (
     <div className={styles.header}>
-      <p className={styles.pageName}> {pageName}</p>
+      <p className={styles.pageName}>{GetPageName(location.pathname)}</p>
       <div className={styles.headerTools}>
         <SearchIcon />
         <NotificationsIcon />

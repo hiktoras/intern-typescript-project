@@ -199,7 +199,7 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
           itemPrice <= maxPriceValue
         );
       }
-      return item.name.includes(filterText);
+      return item.name.toLowerCase().includes(filterText.toLowerCase());
     })
     .sort((a, b) => {
       if (sortName === "asc") {
