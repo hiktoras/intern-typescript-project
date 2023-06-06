@@ -11,6 +11,12 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route
+            path=""
+            element={
+              <TransactionTable transactionDataList={transactionDataList} />
+            }
+          />
+          <Route
             path="transactions"
             element={
               <TransactionTable transactionDataList={transactionDataList} />

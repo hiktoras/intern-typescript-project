@@ -20,7 +20,7 @@ const GetPageName = (path: string) => {
     case "/recipients":
       return "Recipients";
 
-    case "/transactions":
+    default:
       return "Transactions";
   }
 };
