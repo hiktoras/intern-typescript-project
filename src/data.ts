@@ -62,6 +62,7 @@ export const bottomNavMenuDataList: NavMenuData[] = [
 
 export const transactionDataList: TransactionData[] = [
   {
+    id: 0,
     name: "Stripe",
     imageName: "stripe",
     business: "Witdraw",
@@ -75,6 +76,7 @@ export const transactionDataList: TransactionData[] = [
   },
 
   {
+    id: 1,
     name: "Bitcoin transaction",
     imageName: "bitcoin",
     business: "Deposit",
@@ -88,6 +90,7 @@ export const transactionDataList: TransactionData[] = [
   },
 
   {
+    id: 2,
     name: "Facebook charge",
     imageName: "facebook",
     business: "Advertising",
@@ -101,6 +104,7 @@ export const transactionDataList: TransactionData[] = [
   },
 
   {
+    id: 3,
     name: "Upwork",
     imageName: "upwork",
     business: "Business",
@@ -114,6 +118,7 @@ export const transactionDataList: TransactionData[] = [
   },
 
   {
+    id: 4,
     name: "Send to Antonio",
     imageName: "antonio",
     business: "Transfer",
@@ -127,6 +132,7 @@ export const transactionDataList: TransactionData[] = [
   },
 
   {
+    id: 5,
     name: "UI8.net",
     imageName: "UI8",
     business: "Payment",
@@ -139,6 +145,7 @@ export const transactionDataList: TransactionData[] = [
     actions: "Details",
   },
   {
+    id: 6,
     name: "Bank of America",
     imageName: "bank",
     business: "Witdraw",
@@ -152,6 +159,7 @@ export const transactionDataList: TransactionData[] = [
   },
 
   {
+    id: 7,
     name: "UI8.net",
     imageName: "UI8",
     business: "Payment",

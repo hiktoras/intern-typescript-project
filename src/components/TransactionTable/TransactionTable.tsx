@@ -50,6 +50,7 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
   const [sortAmount, setSortAmount] = useState("inactive");
   const [sortStatus, setSortStatus] = useState("inactive");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [rowId, setRowId] = useState(0);
 
   const typeOptions = [
     "All Transactions",
@@ -172,7 +173,8 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
     }
   };
 
-  const handleDrawerOpen = () => {
+  const handleDrawerOpen = (id: number) => {
+    setRowId(id);
     setIsDrawerOpen(true);
   };
 
@@ -407,7 +409,10 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
                 <p className={styles.status}>{nData.status}</p>
               </td>
               <td>
-                <button onClick={handleDrawerOpen} className={styles.details}>
+                <button
+                  onClick={() => handleDrawerOpen(nData.id)}
+                  className={styles.details}
+                >
                   Details
                 </button>
               </td>
@@ -415,7 +420,11 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
           ))}
         </tbody>
       </table>
-      <TransactionDetails isOpen={isDrawerOpen} onClose={handleDrawerClose} />
+      <TransactionDetails
+        isOpen={isDrawerOpen}
+        onClose={handleDrawerClose}
+        nData={transactionDataList[rowId]}
+      />
     </>
   );
 };

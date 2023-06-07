@@ -11,6 +11,7 @@ export interface SubNavMenuData {
 }
 
 export interface TransactionData {
+  id: number;
   name: string;
   imageName: string;
   business: string;
