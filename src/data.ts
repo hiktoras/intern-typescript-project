@@ -241,6 +241,6 @@ export const RecipientDataList: RecipientData[] = [
 ];
 
 export const UserInfoData: UserData = {
-  userName: "Alesia",
+  userName: "Alesia K.",
   imageName: "alesia",
 };

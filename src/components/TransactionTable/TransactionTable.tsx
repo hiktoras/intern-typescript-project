@@ -10,6 +10,7 @@ import Antonio from "../../assets/images/antonio.jpg";
 import { ReactComponent as BankOfAmericaIcon } from "../../assets/icons/bank-of-america.svg";
 import { ReactComponent as UI8Icon } from "../../assets/icons/UI8.svg";
 import TransactionDetails from "../TransactionDetails/TransactionDetails";
+import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 
 const Icon = (text: string) => {
   switch (text) {
@@ -239,13 +240,17 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
   return (
     <>
       <div className={styles.searchFilters}>
-        <input
-          className={styles.searchBox}
-          type="text"
-          value={filterText}
-          onChange={handleChange}
-          placeholder="Search for transactions..."
-        />
+        <div className={styles.searchInput}>
+          <SearchIcon />
+          <input
+            className={styles.searchBox}
+            type="text"
+            value={filterText}
+            onChange={handleChange}
+            placeholder="Search for transactions..."
+          />
+        </div>
+
         <button
           onClick={handleFiltersButtonClick}
           className={
@@ -268,26 +273,42 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
         </button>
       </div>
       {isFiltersButtonSelected && (
-        <div className={styles.tablefilter}>
-          <select
-            value={filterTransactionType}
-            onChange={handleChangeTransactionType}
-          >
-            {typeOptions.map((key) => (
-              <option key={key} value={key}>
-                {key}
-              </option>
-            ))}
-          </select>
-          <select value={filterStatus} onChange={handleChangeFilterStatus}>
-            {statusOptions.map((key) => (
-              <option key={key} value={key}>
-                {key}
-              </option>
-            ))}
-          </select>
+        <div className={styles.tableFilter}>
+          <div>
+            <p className={styles.tableHeadButton}>Type</p>
+            <select
+              className={styles.filterSelect}
+              value={filterTransactionType}
+              onChange={handleChangeTransactionType}
+            >
+              {typeOptions.map((key) => (
+                <option key={key} value={key}>
+                  {key}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <p className={styles.tableHeadButton}>Status</p>
+
+            <select
+              className={styles.filterSelect}
+              value={filterStatus}
+              onChange={handleChangeFilterStatus}
+            >
+              {statusOptions.map((key) => (
+                <option key={key} value={key}>
+                  {key}
+                </option>
+              ))}
+            </select>
+          </div>
           <div className={styles.priceFilter}>
-            <button onClick={handleFilterClick}>Filtrele</button>
+            <p className={styles.tableHeadButton}>Amount & Currencies</p>
+
+            <button className={styles.filterSelect} onClick={handleFilterClick}>
+              Filtrele
+            </button>
             {isOpen && (
               <div className={styles.priceFilterDropdownContainer}>
                 <div className={styles.priceFilterDropdown}>
@@ -395,7 +416,9 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
                 <p className={styles.date}>{nData.date}</p>
                 <p className={styles.time}>{nData.time}</p>
               </td>
-              <td className={styles.invoiceId}>{nData.invoiceId}</td>
+              <td>
+                <p className={styles.invoiceId}>{nData.invoiceId}</p>
+              </td>
               <td className={styles.amount}>{nData.amount}</td>
               <td
                 className={

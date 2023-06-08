@@ -8,13 +8,12 @@
 
 .sidebar {
   width: 250px;
-  height: 1024px;
   border-right: 1px solid #e2e8f0;
   background: #fafafa;
 }
 
 .footer {
-  margin-top: 250px;
+  margin-top: 200px;
 }
 
 ul {
@@ -24,4 +23,7 @@ ul {
 .main {
   display: flex;
   flex-direction: row;
+}
+.middle {
+  padding-left: 40px;
 }

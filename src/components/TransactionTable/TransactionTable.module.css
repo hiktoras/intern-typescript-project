@@ -24,72 +24,60 @@
   line-height: 150%;
   letter-spacing: 0.2px;
   color: #718096;
+  padding: 28px 0px;
+  height: 80px;
 }
 
 .name {
   width: 236px;
-  height: 24px;
   font-family: "Manrope";
   font-style: normal;
   font-weight: 800;
   font-size: 16px;
-  line-height: 150%;
-  display: flex;
-  align-items: center;
   letter-spacing: 0.2px;
   color: #1a202c;
+  margin-bottom: 0px;
+  margin-top: 24px;
 }
-
-.date {
-  width: 180px;
-  height: 24px;
-  font-family: "Manrope";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 150%;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.2px;
-  color: #1a202c;
-}
-
-.time {
-  width: 180px;
-  height: 21px;
+.business {
+  margin-top: 4px;
+  width: 236px;
   font-family: "Manrope";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 150%;
-  display: flex;
-  align-items: center;
   letter-spacing: 0.2px;
   color: #718096;
 }
 
-.business {
-  width: 236px;
-  height: 21px;
+.date {
+  width: 180px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+
+.time {
+  width: 180px;
   font-family: "Manrope";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 150%;
-  display: flex;
-  align-items: center;
   letter-spacing: 0.2px;
   color: #718096;
 }
 
 .invoiceId {
   width: 157.5px;
-  height: 24px;
   font-family: "Manrope";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 150%;
   color: #1a202c;
 }
 
@@ -240,27 +228,68 @@
 .searchFilters {
   display: flex;
   flex-direction: row;
-  margin-left: 40px;
   margin-top: 40px;
 }
 
 .table {
   gap: 8px;
-  width: 1200px;
-  margin-left: 40px;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
   margin-top: 30px;
   border-top: 1px solid #e2e8f0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .iconBox {
-  position: relative;
-  top: 16px;
-  right: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  margin-right: 5px;
 }
 
 .searchBox {
+  border: none;
+  border-radius: 15px;
+}
+
+.searchInput {
+  display: flex;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
   margin-right: auto;
 }
+.tableFilter {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
 .tableRowBox {
-  border-top: 1px solid #edf2f7;
+  padding-top: 5px;
+}
+
+.filterSelect {
+  width: 202.8px;
+  height: 48px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: none;
+  padding-left: 12px;
+
+  /* body/medium/medium */
+
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  /* identical to box height, or 21px */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+
+  /* Greyscale/600 */
+
+  color: #718096;
 }
