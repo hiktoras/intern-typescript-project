@@ -1,3 +1,8 @@
+.table {
+  gap: 8px;
+  margin-top: 30px;
+}
+
 .tableHeadButton {
   align-items: center;
   color: #718096;
@@ -32,62 +37,6 @@
   font-family: "Manrope";
   font-style: normal;
   font-weight: 800;
-  font-size: 16px;
-  line-height: 150%;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.2px;
-  color: #1a202c;
-}
-
-.email {
-  width: 280px;
-  height: 24px;
-  font-family: "Manrope";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 150%;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.2px;
-  color: #1a202c;
-}
-
-.accountType {
-  width: 71px;
-  height: 24px;
-  font-family: "Manrope";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 150%;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.2px;
-  color: #1a202c;
-}
-
-.currency {
-  width: 33px;
-  height: 24px;
-  font-family: "Manrope";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 150%;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.2px;
-  color: #1a202c;
-}
-
-.date {
-  width: 230px;
-  height: 24px;
-  font-family: "Manrope";
-  font-style: normal;
-  font-weight: 600;
   font-size: 16px;
   line-height: 150%;
   display: flex;
@@ -144,16 +93,46 @@
 }
 
 .priceFilterDropdownContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #e2e8f0;
+  padding: 16px;
+  gap: 24px;
   position: absolute;
-  left: 0;
-  top: 100%; /* Sayfanın alt kısmına göre ayarlayın */
-  width: 274px;
+  background: #ffffff;
+  box-shadow: 4px 12px 32px rgba(93, 106, 131, 0.1);
+  border-radius: 12px;
 }
 
 .priceFilterDropdown {
   background-color: white;
-  border: 1px solid #ccc;
   padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+.filterSelect {
+  width: 202.8px;
+  height: 48px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: none;
+  padding-left: 12px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #718096;
 }
 
 .tableElement {
@@ -161,16 +140,60 @@
   flex-direction: row;
 }
 
+.nameColumn {
+  display: flex;
+  flex-direction: row;
+}
+
+.secondaryText {
+  width: 280px;
+  height: 24px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+}
+
+.tableRow {
+  padding-bottom: 50px;
+  height: 90px;
+}
+.tableFilter {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+.tableHeadButton {
+  align-items: center;
+  color: #718096;
+  background-color: white;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 150%;
+  overflow: visible;
+  padding: 0;
+  border: none;
+  background: none;
+}
 .searchFilters {
   display: flex;
   flex-direction: row;
-  margin-left: 40px;
   margin-top: 40px;
 }
-
-.table {
-  gap: 8px;
-  width: 1200px;
-  margin-left: 40px;
-  margin-top: 40px;
+.searchInput {
+  display: flex;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+  margin-right: auto;
+}
+.searchBox {
+  border: none;
+  border-radius: 15px;
 }

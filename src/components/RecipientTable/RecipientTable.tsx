@@ -2,6 +2,8 @@ import { RecipientData } from "../../types";
 import styles from "./RecipientTable.module.css";
 import { useState } from "react";
 import { ReactComponent as ArrowsIcon } from "../../assets/icons/arrows.svg";
+import { ReactComponent as FilterIcon } from "../../assets/icons/filter.svg";
+import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import Guy from "../../assets/images/guy.jpg";
 import Roselle from "../../assets/images/roselle.jpg";
 import Marielle from "../../assets/images/marielle.jpg";
@@ -87,53 +89,6 @@ const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
     setFilterCurrency(e.target.value);
   };
 
-  const handleSortName = () => {
-    switch (sortName) {
-      case "asc":
-        setSortName("desc");
-        break;
-
-      case "desc":
-        setSortName("inactive");
-        break;
-
-      case "inactive":
-        setSortName("asc");
-        break;
-    }
-  };
-
-  const handleSortAmount = () => {
-    switch (sortAmount) {
-      case "asc":
-        setSortAmount("desc");
-        break;
-
-      case "desc":
-        setSortAmount("inactive");
-        break;
-
-      case "inactive":
-        setSortAmount("asc");
-        break;
-    }
-  };
-
-  const handleSortStatus = () => {
-    switch (sortStatus) {
-      case "asc":
-        setSortStatus("desc");
-        break;
-
-      case "desc":
-        setSortStatus("inactive");
-        break;
-
-      case "inactive":
-        setSortStatus("asc");
-        break;
-    }
-  };
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
@@ -162,13 +117,17 @@ const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
         />
       )}
 
-      <div className={styles.header}>
-        <input
-          type="text"
-          value={filterText}
-          onChange={handleChange}
-          placeholder="Search for transactions..."
-        />
+      <div className={styles.searchFilters}>
+        <div className={styles.searchInput}>
+          <SearchIcon />
+          <input
+            className={styles.searchBox}
+            type="text"
+            value={filterText}
+            onChange={handleChange}
+            placeholder="Search for transactions..."
+          />
+        </div>
         <button className={styles.addNew} onClick={handleOpenModal}>
           + Add New
         </button>
@@ -180,25 +139,40 @@ const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
               : styles.unselectedButton
           }
         >
+          <FilterIcon />
           Filters
         </button>
       </div>
       {isFiltersButtonSelected && (
-        <div className={styles.tablefilter}>
-          <select value={filterAccountType} onChange={handleChangeAccountType}>
-            {typeOptions.map((key) => (
-              <option key={key} value={key}>
-                {key}
-              </option>
-            ))}
-          </select>
-          <select value={filterCurrency} onChange={handleFilterCurrencyChange}>
-            {currencyOptions.map((key) => (
-              <option key={key} value={key}>
-                {key}
-              </option>
-            ))}
-          </select>
+        <div className={styles.tableFilter}>
+          <div>
+            <p className={styles.tableHeadButton}>Account Type</p>
+            <select
+              className={styles.filterSelect}
+              value={filterAccountType}
+              onChange={handleChangeAccountType}
+            >
+              {typeOptions.map((key) => (
+                <option key={key} value={key}>
+                  {key}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <p className={styles.tableHeadButton}>Currency</p>
+            <select
+              className={styles.filterSelect}
+              value={filterCurrency}
+              onChange={handleFilterCurrencyChange}
+            >
+              {currencyOptions.map((key) => (
+                <option key={key} value={key}>
+                  {key}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       )}
 
@@ -239,25 +213,26 @@ const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
 
         <tbody>
           {filteredList.map((nData) => (
-            <tr>
-              <div className={styles.iconBox}>{Icon(nData.imageName)}</div>
-
+            <tr className={styles.tableRow}>
               <td>
-                <p className={styles.name}>{nData.name}</p>
+                <div className={styles.nameColumn}>
+                  <div className={styles.iconBox}>{Icon(nData.imageName)}</div>
+                  <p className={styles.name}>{nData.name}</p>
+                </div>
               </td>
               <td>
-                <p className={styles.email}>{nData.email}</p>
+                <p className={styles.secondaryText}>{nData.email}</p>
               </td>
               <td>
-                <p className={styles.accountType}>{nData.accountType}</p>
+                <p className={styles.secondaryText}>{nData.accountType}</p>
               </td>
               <td>
-                <p className={styles.currency}>
+                <div className={styles.secondaryText}>
                   {CurIcon(nData.currency)} {nData.currency}
-                </p>
+                </div>
               </td>
               <td>
-                <p className={styles.date}>{nData.date}</p>
+                <p className={styles.secondaryText}>{nData.date}</p>
               </td>
             </tr>
           ))}
