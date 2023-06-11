@@ -11,6 +11,8 @@ import { ReactComponent as BankOfAmericaIcon } from "../../assets/icons/bank-of-
 import { ReactComponent as UI8Icon } from "../../assets/icons/UI8.svg";
 import TransactionDetails from "../TransactionDetails/TransactionDetails";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
+import { ReactComponent as FilterIcon } from "../../assets/icons/filter.svg";
+import { ReactComponent as ExportIcon } from "../../assets/icons/export.svg";
 
 const Icon = (text: string) => {
   switch (text) {
@@ -30,7 +32,28 @@ const Icon = (text: string) => {
       return <UI8Icon />;
   }
 };
+const AmountFormat = (currency: string, amount: number) => {
+  let prefix: string;
 
+  switch (currency) {
+    case "USD":
+      prefix = "$";
+      break;
+    case "EUR":
+      prefix = "€";
+      break;
+    default:
+      prefix = "$";
+
+      break;
+  }
+  if (amount < 0) {
+    amount = -amount;
+    prefix = "-" + prefix;
+  }
+
+  return prefix + amount.toFixed(2);
+};
 export interface TransactionProps {
   transactionDataList: TransactionData[];
 }
@@ -259,6 +282,7 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
               : styles.unselectedButton
           }
         >
+          <FilterIcon />
           Filters
         </button>
         <button
@@ -269,6 +293,7 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
               : styles.unselectedButton
           }
         >
+          <ExportIcon />
           Exports
         </button>
       </div>
@@ -307,14 +332,17 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
             <p className={styles.tableHeadButton}>Amount & Currencies</p>
 
             <button className={styles.filterSelect} onClick={handleFilterClick}>
-              Filtrele
+              {filterCurrency}
             </button>
             {isOpen && (
-              <div className={styles.priceFilterDropdownContainer}>
-                <div className={styles.priceFilterDropdown}>
+              <div>
+                <div className={styles.priceFilterDropdownContainer}>
                   <div>
-                    <label htmlFor="currency">Para Birimi</label>
-                    <select id="currency" onChange={handleFilterCurrencyChange}>
+                    <select
+                      className={styles.currencySelect}
+                      id="currency"
+                      onChange={handleFilterCurrencyChange}
+                    >
                       <option key="All Currencies" value="All Currencies">
                         All Currencies
                       </option>
@@ -331,6 +359,7 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
                   </div>
                   <div>
                     <input
+                      className={styles.priceFilterDropdown}
                       placeholder="Minimum"
                       id="min-price"
                       type="number"
@@ -340,14 +369,20 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
                   </div>
                   <div>
                     <input
-                      placeholder="Maks"
+                      className={styles.priceFilterDropdown}
+                      placeholder="Maximum"
                       id="max-price"
                       type="number"
                       value={maxPrice}
                       onChange={handleMaxPriceChange}
                     />
                   </div>
-                  <button onClick={handleFilterApply}>Filtrele</button>
+                  <button
+                    className={styles.applyButton}
+                    onClick={handleFilterApply}
+                  >
+                    Apply
+                  </button>
                 </div>
               </div>
             )}
@@ -419,17 +454,21 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
               <td>
                 <p className={styles.invoiceId}>{nData.invoiceId}</p>
               </td>
-              <td className={styles.amount}>{nData.amount}</td>
-              <td
-                className={
-                  nData.status === "Success"
-                    ? styles.successStatusBox
-                    : nData.status === "Failed"
-                    ? styles.failedStatusBox
-                    : styles.pendingStatusBox
-                }
-              >
-                <p className={styles.status}>{nData.status}</p>
+              <td className={styles.amount}>
+                {AmountFormat(nData.currency, nData.amount)}
+              </td>
+              <td>
+                <div
+                  className={
+                    nData.status === "Success"
+                      ? styles.successStatusBox
+                      : nData.status === "Failed"
+                      ? styles.failedStatusBox
+                      : styles.pendingStatusBox
+                  }
+                >
+                  <p className={styles.status}>{nData.status}</p>
+                </div>
               </td>
               <td>
                 <button
