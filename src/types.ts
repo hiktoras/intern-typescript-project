@@ -1,8 +1,8 @@
 export interface NavMenuData {
   name: string;
+  addresses: string[];
   subNavMenu: SubNavMenuData[];
   iconName: string;
-  isSelected: boolean;
 }
 
 export interface SubNavMenuData {
@@ -36,4 +36,13 @@ export interface RecipientData {
 export interface UserData {
   userName: string;
   imageName: string;
+}
+export interface InvoiceData {
+  name: string;
+  invoiceId: string;
+  date: string;
+  client: string;
+  price: number;
+  currency: string;
+  status: string;
 }

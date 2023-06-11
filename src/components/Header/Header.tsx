@@ -19,7 +19,8 @@ const GetPageName = (path: string) => {
   switch (path) {
     case "/recipients":
       return "Recipients";
-
+    case "/invoices":
+      return "Invoices";
     default:
       return "Transactions";
   }

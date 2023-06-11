@@ -1,32 +1,39 @@
-import { NavMenuData, RecipientData, TransactionData, UserData } from "./types";
+import {
+  InvoiceData,
+  NavMenuData,
+  RecipientData,
+  TransactionData,
+  UserData,
+} from "./types";
 
 export const topNavMenuDataList: NavMenuData[] = [
   {
     name: "Dashboard",
+    addresses: [""],
     subNavMenu: [],
     iconName: "dashboard",
-    isSelected: false,
   },
   {
     name: "Invoices",
+    addresses: ["/invoices"],
     subNavMenu: [],
     iconName: "invoices",
-    isSelected: false,
   },
   {
     name: "Messages",
+    addresses: [""],
     subNavMenu: [],
     iconName: "messages",
-    isSelected: false,
   },
   {
     name: "My Wallets",
+    addresses: [""],
     subNavMenu: [],
     iconName: "my-wallets",
-    isSelected: false,
   },
   {
     name: "Activity",
+    addresses: ["/recipients", "/transactions"],
     subNavMenu: [
       {
         name: "Recipients",
@@ -35,28 +42,27 @@ export const topNavMenuDataList: NavMenuData[] = [
       { name: "Transactions", address: "/transactions" },
     ],
     iconName: "activity",
-    isSelected: true,
   },
   {
     name: "Analytics",
+    addresses: [""],
     subNavMenu: [],
     iconName: "analytics",
-    isSelected: false,
   },
 ];
 
 export const bottomNavMenuDataList: NavMenuData[] = [
   {
     name: "Get Help",
+    addresses: [""],
     subNavMenu: [],
     iconName: "get-help",
-    isSelected: false,
   },
   {
     name: "Settings",
+    addresses: [""],
     subNavMenu: [],
     iconName: "settings",
-    isSelected: false,
   },
 ];
 
@@ -244,3 +250,68 @@ export const UserInfoData: UserData = {
   userName: "Alesia K.",
   imageName: "alesia",
 };
+export const InvoiceDataList: InvoiceData[] = [
+  {
+    name: "New Design Project",
+    invoiceId: "INV110XXX",
+    date: "January 05, 2022",
+    client: "Biffco Enterprises",
+    price: 1240.0,
+    currency: "USD",
+    status: "Unpaid",
+  },
+  {
+    name: "Crypto Project",
+    invoiceId: "INV109XXX",
+    date: "January 02, 2022",
+    client: "Acme Co.",
+    price: 4367.67,
+    currency: "USD",
+    status: "Unpaid",
+  },
+  {
+    name: "Sarimun Design",
+    invoiceId: "INV108XXX",
+    date: "January 01, 2022",
+    client: "Big Kahuna Burger",
+    price: 980.0,
+    currency: "USD",
+    status: "Pending",
+  },
+  {
+    name: "Abstergo Development",
+    invoiceId: "INV107XXX",
+    date: "January 01, 2022",
+    client: "Abstergo Ltd.",
+    price: 5789.0,
+    currency: "USD",
+    status: "Refund",
+  },
+  {
+    name: "Barone Website",
+    invoiceId: "INV106XXX",
+    date: "December 29, 2021",
+    client: "Barone LLC.",
+    price: 3567.0,
+    currency: "USD",
+    status: "Success",
+  },
+  {
+    name: "Barone Website",
+    invoiceId: "INV106XXX",
+    date: "December 29, 2021",
+    client: "Barone LLC.",
+    price: 3567.0,
+    currency: "USD",
+    status: "Paid",
+  },
+  {
+    name: "Biffco Mobile App",
+    invoiceId: "INV105XXX",
+    date: "December 25, 2021",
+    client: "Biffco Enterprises",
+    price: 6345.23,
+    currency: "USD",
+    status: "Paid",
+  },
+];

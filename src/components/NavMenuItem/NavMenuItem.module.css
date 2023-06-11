@@ -24,7 +24,17 @@
   border-radius: 12px;
 }
 
-.navText {
+.selectedNavText {
+  padding-left: 10px;
+  color: #fff;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 21px;
+  letter-spacing: 0.20000000298023224px;
+  text-align: left;
+}
+.unSelectedNavText {
   padding-left: 10px;
 }
 
@@ -55,4 +65,8 @@
   height: 10px;
   background: #1a202c;
   border-radius: 1000px;
+}
+
+.selectedIcon {
+  color: white;
 }
