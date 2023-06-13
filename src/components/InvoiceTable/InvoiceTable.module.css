@@ -24,6 +24,11 @@
 .tableHead {
   text-align: left;
 }
+.tableFirstHead {
+  padding-top: 7px;
+  padding-right: 13px;
+  width: 30px;
+}
 
 .tableHeadRow {
   font-family: "Manrope";
@@ -320,4 +325,8 @@
   background: #194bfb;
   border-radius: 12px;
   color: #ffffff;
+}
+.bok {
+  padding-top: 35px;
+  width: 20px;
 }

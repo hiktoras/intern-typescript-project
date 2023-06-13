@@ -7,6 +7,7 @@ import { ReactComponent as FilterIcon } from "../../assets/icons/filter.svg";
 import { ReactComponent as InvoiceIcon } from "../../assets/icons/invoice-page.svg";
 import { ReactComponent as DotsHorizontalIcon } from "../../assets/icons/dots-horizontal.svg";
 import { ReactComponent as CheckBoxIcon } from "../../assets/icons/checkbox.svg";
+import { ReactComponent as CheckedBoxIcon } from "../../assets/icons/checked-box.svg";
 
 const AmountFormat = (currency: string, amount: number) => {
   let prefix: string;
@@ -48,7 +49,15 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
   const [sortName, setSortName] = useState("inactive");
   const [sortAmount, setSortAmount] = useState("inactive");
   const [sortStatus, setSortStatus] = useState("inactive");
+  const [selectedRows, setSelectedRows] = useState<number[]>([]);
 
+  const toggleRowSelection = (id: number) => {
+    if (selectedRows.includes(id)) {
+      setSelectedRows(selectedRows.filter((rowId) => rowId !== id));
+    } else {
+      setSelectedRows([...selectedRows, id]);
+    }
+  };
   const statusOptions = ["All Statuses", "Pending", "Success", "Failed"];
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -323,6 +332,9 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
       <table className={styles.table}>
         <thead>
           <tr className={styles.tableHeadRow}>
+            <th className={styles.tableFirstHead}>
+              <CheckBoxIcon />
+            </th>
             <th className={styles.tableHead}>
               <button
                 className={styles.tableHeadButton}
@@ -369,6 +381,15 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
         <tbody>
           {filteredList.map((nData) => (
             <tr className={styles.tableRowBox}>
+              <td>
+                {selectedRows.includes(nData.id) ? (
+                  <CheckBoxIcon onClick={() => toggleRowSelection(nData.id)} />
+                ) : (
+                  <CheckedBoxIcon
+                    onClick={() => toggleRowSelection(nData.id)}
+                  />
+                )}
+              </td>
               <td>
                 <div className={styles.tableElement}>
                   <div className={styles.iconBox}>

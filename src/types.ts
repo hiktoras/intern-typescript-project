@@ -38,6 +38,7 @@ export interface UserData {
   imageName: string;
 }
 export interface InvoiceData {
+  id: number;
   name: string;
   invoiceId: string;
   date: string;

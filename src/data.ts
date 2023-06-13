@@ -252,6 +252,7 @@ export const UserInfoData: UserData = {
 };
 export const InvoiceDataList: InvoiceData[] = [
   {
+    id: 1,
     name: "New Design Project",
     invoiceId: "INV110XXX",
     date: "January 05, 2022",
@@ -261,6 +262,7 @@ export const InvoiceDataList: InvoiceData[] = [
     status: "Unpaid",
   },
   {
+    id: 2,
     name: "Crypto Project",
     invoiceId: "INV109XXX",
     date: "January 02, 2022",
@@ -270,6 +272,7 @@ export const InvoiceDataList: InvoiceData[] = [
     status: "Unpaid",
   },
   {
+    id: 3,
     name: "Sarimun Design",
     invoiceId: "INV108XXX",
     date: "January 01, 2022",
@@ -279,6 +282,7 @@ export const InvoiceDataList: InvoiceData[] = [
     status: "Pending",
   },
   {
+    id: 4,
     name: "Abstergo Development",
     invoiceId: "INV107XXX",
     date: "January 01, 2022",
@@ -288,6 +292,7 @@ export const InvoiceDataList: InvoiceData[] = [
     status: "Refund",
   },
   {
+    id: 5,
     name: "Barone Website",
     invoiceId: "INV106XXX",
     date: "December 29, 2021",
@@ -297,6 +302,7 @@ export const InvoiceDataList: InvoiceData[] = [
     status: "Success",
   },
   {
+    id: 6,
     name: "Barone Website",
     invoiceId: "INV106XXX",
     date: "December 29, 2021",
@@ -306,6 +312,7 @@ export const InvoiceDataList: InvoiceData[] = [
     status: "Paid",
   },
   {
+    id: 7,
     name: "Biffco Mobile App",
     invoiceId: "INV105XXX",
     date: "December 25, 2021",
