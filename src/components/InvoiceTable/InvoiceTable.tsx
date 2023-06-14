@@ -8,6 +8,9 @@ import { ReactComponent as InvoiceIcon } from "../../assets/icons/invoice-page.s
 import { ReactComponent as DotsHorizontalIcon } from "../../assets/icons/dots-horizontal.svg";
 import { ReactComponent as CheckBoxIcon } from "../../assets/icons/checkbox.svg";
 import { ReactComponent as CheckedBoxIcon } from "../../assets/icons/checked-box.svg";
+import "jspdf-autotable";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 
 const AmountFormat = (currency: string, amount: number) => {
   let prefix: string;
@@ -77,6 +80,9 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
 
   const handleExportsButtonClick = () => {
     setIsExportsButtonSelected(!isExportsButtonSelected);
+    const pdf = new jsPDF();
+    autoTable(pdf, { html: "#tableData" });
+    pdf.save("Todos.pdf");
   };
 
   const handleFilterClick = () => {
@@ -329,7 +335,7 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
         </div>
       )}
 
-      <table className={styles.table}>
+      <table className={styles.table} id="tableData">
         <thead>
           <tr className={styles.tableHeadRow}>
             <th className={styles.tableFirstHead}>
