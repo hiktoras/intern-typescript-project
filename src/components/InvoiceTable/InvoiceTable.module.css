@@ -198,7 +198,8 @@
 
   border: 1px solid #e2e8f0;
   border-radius: 12px;
-  color: #194bfb;
+  color: #ffff;
+  background-color: #194bfb;
 }
 .unselectedButton {
   box-sizing: border-box;
@@ -325,8 +326,4 @@
   background: #194bfb;
   border-radius: 12px;
   color: #ffffff;
-}
-.bok {
-  padding-top: 35px;
-  width: 20px;
 }

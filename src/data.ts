@@ -1,5 +1,6 @@
 import {
   InvoiceData,
+  InvoiceItemData,
   NavMenuData,
   RecipientData,
   TransactionData,
@@ -320,5 +321,24 @@ export const InvoiceDataList: InvoiceData[] = [
     price: 6345.23,
     currency: "USD",
     status: "Paid",
+  },
+];
+
+export const NewInvoiceDataList: InvoiceItemData[] = [
+  {
+    item: "Payment-New Design Project",
+    qty: 1,
+    hours: 40,
+    rate: "10.00 ",
+    total: "400.00",
+    currency: "",
+  },
+  {
+    item: "Design System ",
+    qty: 5,
+    hours: 120,
+    rate: "10.00 ",
+    total: "8456.00",
+    currency: "",
   },
 ];

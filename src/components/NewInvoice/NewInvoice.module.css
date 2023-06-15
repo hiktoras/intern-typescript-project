@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+  gap: 16px;
+  width: 338.5px;
+  background: #fafafa;
+  border-radius: 12px;
+}
+
+.containers {
+  display: flex;
+  flex-direction: row;
+}
+
+.containerText {
+  display: flex;
+  flex-direction: row;
+}
+
+.from {
+  margin-right: auto;
+  margin-left: 1rem;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 135%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+}
+
+.billTo {
+  margin-right: auto;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 135%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+}
+
+.overlayText,
+.biffcoText {
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+}
+
+.overlayId,
+.biffcoId {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.4px;
+  color: #718096;
+}
+
+.email,
+.address {
+  display: flex;
+  flex-direction: row;
+}
+.inputBox {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  gap: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin: 1rem;
+}
+
+.input {
+  border: none;
+}
+
+.boxText {
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.4px;
+  color: #718096;
+}

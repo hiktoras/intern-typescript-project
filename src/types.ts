@@ -47,3 +47,12 @@ export interface InvoiceData {
   currency: string;
   status: string;
 }
+
+export interface InvoiceItemData {
+  item: string;
+  qty: number;
+  hours: number;
+  rate: string;
+  total: string;
+  currency: string;
+}

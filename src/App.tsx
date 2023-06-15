@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import InvoiceTable from "./components/InvoiceTable/InvoiceTable";
 import Layout from "./components/Layout/Layout";
+import NewInvoice from "./components/NewInvoice/NewInvoice";
 import RecipientTable from "./components/RecipientTable/RecipientTable";
 import TransactionTable from "./components/TransactionTable/TransactionTable";
 import {
@@ -35,6 +36,7 @@ function App() {
             path="invoices"
             element={<InvoiceTable invoiceDataList={InvoiceDataList} />}
           />
+          <Route path="new-invoice" element={<NewInvoice />} />
         </Route>
       </Routes>
     </BrowserRouter>

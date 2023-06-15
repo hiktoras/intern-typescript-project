@@ -8,9 +8,7 @@ import { ReactComponent as InvoiceIcon } from "../../assets/icons/invoice-page.s
 import { ReactComponent as DotsHorizontalIcon } from "../../assets/icons/dots-horizontal.svg";
 import { ReactComponent as CheckBoxIcon } from "../../assets/icons/checkbox.svg";
 import { ReactComponent as CheckedBoxIcon } from "../../assets/icons/checked-box.svg";
-import "jspdf-autotable";
-import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
+import { ReactComponent as CreateInvoiceIcon } from "../../assets/icons/create-invoice.svg";
 
 const AmountFormat = (currency: string, amount: number) => {
   let prefix: string;
@@ -43,7 +41,8 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
 
   const [filterStatus, setFilterStatus] = useState("All Statuses");
   const [isFiltersButtonSelected, setIsFiltersButtonSelected] = useState(false);
-  const [isExportsButtonSelected, setIsExportsButtonSelected] = useState(false);
+  const [isCreateInvoiceButtonSelected, setIsCreateInvoiceButtonSelected] =
+    useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [filterCurrency, setFilterCurrency] = useState("All Currencies");
   const [minPrice, setMinPrice] = useState("");
@@ -78,11 +77,8 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
     setIsFiltersButtonSelected(!isFiltersButtonSelected);
   };
 
-  const handleExportsButtonClick = () => {
-    setIsExportsButtonSelected(!isExportsButtonSelected);
-    const pdf = new jsPDF();
-    autoTable(pdf, { html: "#tableData" });
-    pdf.save("Todos.pdf");
+  const handleCreateInvoiceButtonClick = () => {
+    setIsCreateInvoiceButtonSelected(!isCreateInvoiceButtonSelected);
   };
 
   const handleFilterClick = () => {
@@ -234,6 +230,10 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
           />
         </div>
 
+        <a href="new-invoice" className={styles.selectedButton}>
+          Create Invoice
+        </a>
+        <CreateInvoiceIcon />
         <button
           onClick={handleFiltersButtonClick}
           className={
@@ -244,16 +244,6 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
         >
           <FilterIcon />
           Filters
-        </button>
-        <button
-          onClick={handleExportsButtonClick}
-          className={
-            isExportsButtonSelected
-              ? styles.selectedButton
-              : styles.unselectedButton
-          }
-        >
-          Exports
         </button>
       </div>
       {isFiltersButtonSelected && (
@@ -335,7 +325,7 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
         </div>
       )}
 
-      <table className={styles.table} id="tableData">
+      <table className={styles.table}>
         <thead>
           <tr className={styles.tableHeadRow}>
             <th className={styles.tableFirstHead}>

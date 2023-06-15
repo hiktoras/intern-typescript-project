@@ -13,6 +13,9 @@ import TransactionDetails from "../TransactionDetails/TransactionDetails";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import { ReactComponent as FilterIcon } from "../../assets/icons/filter.svg";
 import { ReactComponent as ExportIcon } from "../../assets/icons/export.svg";
+import "jspdf-autotable";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 
 const Icon = (text: string) => {
   switch (text) {
@@ -111,6 +114,9 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
 
   const handleExportsButtonClick = () => {
     setIsExportsButtonSelected(!isExportsButtonSelected);
+    const pdf = new jsPDF();
+    autoTable(pdf, { html: "#tableData" });
+    pdf.save("Todos.pdf");
   };
 
   const handleFilterClick = () => {
@@ -390,7 +396,7 @@ const TransactionTable = ({ transactionDataList }: TransactionProps) => {
         </div>
       )}
 
-      <table className={styles.table}>
+      <table className={styles.table} id="tableData">
         <thead>
           <tr className={styles.tableHeadRow}>
             <th className={styles.tableHead}>

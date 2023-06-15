@@ -7,9 +7,14 @@ import {
   topNavMenuDataList,
   UserInfoData,
 } from "../../data";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+
+const isNewInvoicePage = (path: string) => {
+  return path === "/new-invoice";
+};
 
 function Layout() {
+  const location = useLocation();
   return (
     <section className={styles.main}>
       <aside className={styles.sidebar}>
@@ -24,9 +29,12 @@ function Layout() {
         </section>
       </aside>
       <div className={styles.middle}>
-        <header>
-          <Header userData={UserInfoData} />
-        </header>
+        {!isNewInvoicePage(location.pathname) && (
+          <header>
+            <Header userData={UserInfoData} />
+          </header>
+        )}
+
         <main>
           <Outlet />
         </main>
