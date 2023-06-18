@@ -41,8 +41,6 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
 
   const [filterStatus, setFilterStatus] = useState("All Statuses");
   const [isFiltersButtonSelected, setIsFiltersButtonSelected] = useState(false);
-  const [isCreateInvoiceButtonSelected, setIsCreateInvoiceButtonSelected] =
-    useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [filterCurrency, setFilterCurrency] = useState("All Currencies");
   const [minPrice, setMinPrice] = useState("");
@@ -75,10 +73,6 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
 
   const handleFiltersButtonClick = () => {
     setIsFiltersButtonSelected(!isFiltersButtonSelected);
-  };
-
-  const handleCreateInvoiceButtonClick = () => {
-    setIsCreateInvoiceButtonSelected(!isCreateInvoiceButtonSelected);
   };
 
   const handleFilterClick = () => {
@@ -229,11 +223,13 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
             placeholder="Search for transactions..."
           />
         </div>
+        <div className={styles.createInvoiceBox}>
+          <CreateInvoiceIcon className={styles.createInvoiceIcon} />
+          <a href="new-invoice" className={styles.selectedButton}>
+            Create Invoice
+          </a>
+        </div>
 
-        <a href="new-invoice" className={styles.selectedButton}>
-          Create Invoice
-        </a>
-        <CreateInvoiceIcon />
         <button
           onClick={handleFiltersButtonClick}
           className={

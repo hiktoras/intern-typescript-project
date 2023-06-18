@@ -53,6 +53,6 @@ export interface InvoiceItemData {
   qty: number;
   hours: number;
   rate: string;
-  total: string;
+  total: number;
   currency: string;
 }

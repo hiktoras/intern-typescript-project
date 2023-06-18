@@ -21,6 +21,10 @@ const GetPageName = (path: string) => {
       return "Recipients";
     case "/invoices":
       return "Invoices";
+    case "/account-settings":
+      return "Account Setting";
+    case "/account-details":
+      return "Account Detail";
     default:
       return "Transactions";
   }

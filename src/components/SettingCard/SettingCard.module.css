@@ -1,0 +1,53 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  padding-top: 26px;
+}
+.title {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 150%;
+  /* identical to box height, or 21px */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  margin: 0px;
+
+  /* Greyscale / 900 */
+
+  color: #1a202c;
+}
+
+.description {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  /* identical to box height, or 18px */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.4px;
+  margin: 0px;
+
+  /* Greyscale/600 */
+
+  color: #718096;
+}
+
+.iconBox {
+  width: 48px;
+  height: 48px;
+  background: #f7fafc;
+  border-radius: 1000px;
+  margin-right: 1rem;
+}
+.icon {
+  position: relative;
+  top: 12px;
+  left: 12px;
+}

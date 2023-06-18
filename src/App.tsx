@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import AccountDetail from "./components/AccountDetail/AccounDetail";
+import AccountSetting from "./components/AccountSetting/AccountSetting";
 import InvoiceTable from "./components/InvoiceTable/InvoiceTable";
 import Layout from "./components/Layout/Layout";
 import NewInvoice from "./components/NewInvoice/NewInvoice";
@@ -36,6 +38,8 @@ function App() {
             path="invoices"
             element={<InvoiceTable invoiceDataList={InvoiceDataList} />}
           />
+          <Route path="account-settings" element={<AccountSetting />} />
+          <Route path="account-details" element={<AccountDetail />} />
           <Route path="new-invoice" element={<NewInvoice />} />
         </Route>
       </Routes>
