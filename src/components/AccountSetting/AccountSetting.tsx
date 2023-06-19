@@ -1,14 +1,5 @@
 import styles from "./AccountSetting.module.css";
-
-import { ReactComponent as UpVectorIcon } from "../../assets/icons/upvector.svg";
-import { useLocation } from "react-router-dom";
 import SettingCard from "../SettingCard/SettingCard";
-import { ReactComponent as MoneyIcon } from "../../assets/icons/money.svg";
-import { ReactComponent as NotificationIcon } from "../../assets/icons/notifications-icon.svg";
-import { ReactComponent as AccountIcon } from "../../assets/icons/account.svg";
-import { ReactComponent as PaymentIcon } from "../../assets/icons/payment.svg";
-import { ReactComponent as AutoIcon } from "../../assets/icons/auto-conver.svg";
-import { ReactComponent as StatementIcon } from "../../assets/icons/statement.svg";
 
 export interface AccountSettingProps {}
 const AccountSetting = ({}: AccountSettingProps) => {
@@ -23,39 +14,39 @@ const AccountSetting = ({}: AccountSettingProps) => {
           isSelected={false}
         />
         <SettingCard
-          iconName={"business-info"}
+          iconName={"money-bank"}
           name={"Money, Banks, and Card"}
           description={"Gravida gravida nisi, magna blandit"}
           isSelected={false}
         />
         <SettingCard
-          iconName={"business-info"}
+          iconName={"notification"}
           name={"Notifications"}
           description={"Manage notifications"}
           isSelected={false}
         />
         <p className={styles.navTitle}>ACCOUNT AND SERVICES</p>
         <SettingCard
-          iconName={"business-info"}
+          iconName={"account"}
           name={"Account Access"}
           description={"Set up and manage your business"}
           isSelected={false}
         />
         <SettingCard
-          iconName={"business-info"}
+          iconName={"payment"}
           name={"Payment Preference"}
           description={"Gravida gravida nisi, magna blandit"}
           isSelected={false}
         />
         <SettingCard
-          iconName={"business-info"}
+          iconName={"auto-conversion"}
           name={"Auto Conversions"}
           description={"Gravida gravida nisi, magna blandit"}
           isSelected={false}
         />
 
         <SettingCard
-          iconName={"business-info"}
+          iconName={"statement"}
           name={"Statement and Reports"}
           description={"Gravida gravida nisi, magna blandit"}
           isSelected={false}

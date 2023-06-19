@@ -1,15 +1,7 @@
 import styles from "./AccountDetail.module.css";
 import ProgressImg from "../../assets/images/progress.png";
 import Alesia from "../../assets/images/alesia-details.jpg";
-
-import { ReactComponent as UpVectorIcon } from "../../assets/icons/upvector.svg";
-import { useLocation } from "react-router-dom";
 import SettingCard from "../SettingCard/SettingCard";
-import { ReactComponent as UserIcon } from "../../assets/icons/detailsuser.svg";
-import { ReactComponent as DebitIcon } from "../../assets/icons/debit.svg";
-import { ReactComponent as TransferIcon } from "../../assets/icons/transfer.svg";
-import { ReactComponent as LoginIcon } from "../../assets/icons/login.svg";
-import { ReactComponent as DataPrivacyIcon } from "../../assets/icons/data-privacy.svg";
 
 export interface AccountDetailProps {}
 const AccountDetail = ({}: AccountDetailProps) => {
@@ -29,31 +21,31 @@ const AccountDetail = ({}: AccountDetailProps) => {
           </div>
         </div>
         <SettingCard
-          iconName={"business-info"}
+          iconName={"account"}
           name={"Personal Informations"}
           description={"View your detail to receiving money"}
           isSelected={false}
         />
         <SettingCard
-          iconName={"business-info"}
+          iconName={"payment"}
           name={"Direct Debits"}
           description={"Set up and manage your direct debit"}
           isSelected={false}
         />
         <SettingCard
-          iconName={"business-info"}
+          iconName={"calendar"}
           name={"Scheduled Transfer"}
           description={"Manage transfers that are due to go out"}
           isSelected={false}
         />
         <SettingCard
-          iconName={"business-info"}
+          iconName={"shield"}
           name={"Login and Security"}
           description={"Amet, est purus a loborits sit."}
           isSelected={false}
         />
         <SettingCard
-          iconName={"business-info"}
+          iconName={"lock"}
           name={"Data Privacy"}
           description={"Amet, est purus a loborits sit."}
           isSelected={false}
@@ -102,17 +94,7 @@ const AccountDetail = ({}: AccountDetailProps) => {
           </div>
         </div>
         <p className={styles.businessInfoSubTitle}>Personal Address</p>
-        <div className={styles.formRow}>
-          {/* <div>
-            <p className={styles.boxText}>Country</p>
-            <div className={styles.inputBox}>
-              <input
-                className={styles.longInput}
-                value="United States"
-              />
-            </div>
-          </div> */}
-        </div>
+        <div className={styles.formRow}></div>
         <div className={styles.formRow}>
           <div>
             <p className={styles.boxText}>Country</p>

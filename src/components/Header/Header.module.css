@@ -37,3 +37,15 @@
   position: relative;
   left: 10px;
 }
+.priceFilterDropdownContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #e2e8f0;
+  padding: 16px;
+  gap: 24px;
+  position: absolute;
+  background: #ffffff;
+  box-shadow: 4px 12px 32px rgba(93, 106, 131, 0.1);
+  border-radius: 12px;
+}

@@ -7,7 +7,6 @@
 .settingNav {
   width: 30%;
   min-width: 367px;
-  /* background-color: aquamarine; */
   border-top: 1px solid #e2e8f0;
   border-right: 1px solid #e2e8f0;
 }
@@ -17,7 +16,6 @@
   min-width: 822px;
   border-top: 1px solid #e2e8f0;
   padding-left: 1rem;
-  /* background-color: blueviolet; */
 }
 
 .navTitle {
@@ -26,14 +24,9 @@
   font-weight: 800;
   font-size: 14px;
   line-height: 150%;
-  /* identical to box height, or 21px */
-
   display: flex;
   align-items: center;
   letter-spacing: 0.2px;
-
-  /* Greyscale/600 */
-
   color: #718096;
 }
 
@@ -54,8 +47,6 @@
   font-weight: 800;
   font-size: 20px;
   line-height: 135%;
-  /* identical to box height, or 27px */
-
   display: flex;
   align-items: center;
   letter-spacing: 0.2px;

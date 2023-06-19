@@ -31,11 +31,11 @@ const Icon = (text: string, isSelected: boolean) => {
     case "statement":
       return <StatementIcon className={styles.icon} stroke={color} />;
     case "calendar":
-      return <CalendarIcon stroke={color} />;
+      return <CalendarIcon className={styles.icon} stroke={color} />;
     case "shield":
-      return <ShieldIcon stroke={color} />;
+      return <ShieldIcon className={styles.icon} stroke={color} />;
     case "lock":
-      return <LockIcon stroke={color} />;
+      return <LockIcon className={styles.icon} stroke={color} />;
   }
 };
 
@@ -54,7 +54,7 @@ const SettingCard = ({
 }: SettingCardProps) => {
   return (
     <div className={styles.card}>
-      <div className={styles.iconBox}>{Icon(iconName, isSelected)}</div>{" "}
+      <div className={styles.iconBox}>{Icon(iconName, isSelected)}</div>
       <div>
         <p className={styles.title}>{name}</p>
         <p className={styles.description}>{description}</p>

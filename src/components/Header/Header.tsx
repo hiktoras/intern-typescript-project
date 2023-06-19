@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { UserData } from "../../types";
 import styles from "./Header.module.css";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
@@ -36,16 +36,34 @@ export interface HeaderProps {
 
 const Header = ({ userData }: HeaderProps) => {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleIsOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className={styles.header}>
       <p className={styles.pageName}>{GetPageName(location.pathname)}</p>
       <div className={styles.headerTools}>
         <SearchIcon />
         <NotificationsIcon />
-        <div className={styles.userInfo}>
-          {Image(userData.imageName)}
-          {userData.userName}
-          <VectorIcon className={styles.vector} />
+        <div>
+          <div className={styles.userInfo} onClick={handleIsOpen}>
+            {Image(userData.imageName)}
+            {userData.userName}
+            <VectorIcon className={styles.vector} />
+          </div>
+
+          {isOpen && (
+            <div>
+              <div className={styles.priceFilterDropdownContainer}>
+                <a href="account-details">Your details</a>
+                <a href="account-settings">Account settings</a>
+                <a href="account-settings">Log out</a>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
