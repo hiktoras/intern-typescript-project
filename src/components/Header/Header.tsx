@@ -4,6 +4,14 @@ import styles from "./Header.module.css";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import { ReactComponent as NotificationsIcon } from "../../assets/icons/notifications.svg";
 import { ReactComponent as VectorIcon } from "../../assets/icons/vector.svg";
+import { ReactComponent as UserIcon } from "../../assets/icons/user-a.svg";
+import { ReactComponent as SettingsIcon } from "../../assets/icons/settings-a.svg";
+import { ReactComponent as LogOutIcon } from "../../assets/icons/log-out-a.svg";
+import { ReactComponent as ToggleIcon } from "../../assets/icons/toggle.svg";
+
+
+
+
 
 import Alesia from "../../assets/images/alesia.jpg";
 import { useLocation } from "react-router-dom";
@@ -50,7 +58,7 @@ const Header = ({ userData }: HeaderProps) => {
         <NotificationsIcon />
         <div>
           <div className={styles.userInfo} onClick={handleIsOpen}>
-            {Image(userData.imageName)}
+              {Image(userData.imageName)}
             {userData.userName}
             <VectorIcon className={styles.vector} />
           </div>
@@ -58,9 +66,24 @@ const Header = ({ userData }: HeaderProps) => {
           {isOpen && (
             <div>
               <div className={styles.priceFilterDropdownContainer}>
-                <a href="account-details">Your details</a>
-                <a href="account-settings">Account settings</a>
-                <a href="account-settings">Log out</a>
+                <div className={styles.containerTop}>
+                <p className={styles.alesia}>Alesia Karapova</p>
+                <p className={styles.info}>Business account</p>
+                </div>
+                <div className={styles.containerItem}>
+                 <UserIcon/>
+                  <a href="account-details">Your details</a></div>
+                <div className={styles.containerItem}>
+                  <SettingsIcon/>
+                  <a href="account-settings">Account settings</a></div>
+                <div className={styles.containerItem}>
+                  <LogOutIcon/>
+                  <a href="account-settings">Log out</a></div>
+                  <div className={styles.containerBottom}>
+                   <p className={styles.darkMode}> Dark Mode</p>
+                   <ToggleIcon className={styles.toggle}/>
+                  </div>
+
               </div>
             </div>
           )}

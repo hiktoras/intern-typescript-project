@@ -116,9 +116,13 @@
   line-height: 150%;
 }
 
+.unpaidStatusBox,
 .pendingStatusBox,
-.failedStatusBox,
-.successStatusBox {
+.successStatusBox,
+.refundStatusBox,
+.paidStatusBox 
+
+ {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -133,18 +137,27 @@
   margin-top: 20px;
 }
 
-.failedStatusBox {
-  background: #fff5f5;
-  color: #ff4747;
+.unpaidStatusBox {
+  background: #F7F5FF;
+  color: #936DFF;
 }
 .pendingStatusBox {
   color: #ff784b;
   background: #fff7f5;
 }
 .successStatusBox {
+  background: #F6FDF9;
+  color: #22c55e;
+}
+.refundStatusBox {
+color: #FACC15;
+  background: #FFFCF0;
+}
+.paidStatusBox {
   background: #f6fdf9;
   color: #22c55e;
 }
+
 .statusBox {
   display: flex;
   flex-direction: row;
@@ -274,6 +287,7 @@
 .tableElement {
   display: flex;
   flex-direction: row;
+  gap: 10px;
 }
 
 .searchFilters {
@@ -338,4 +352,22 @@
   background: #194bfb;
   border-radius: 12px;
   color: #ffffff;
+}
+.actionOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #e2e8f0;
+  padding: 16px;
+  gap: 24px;
+  position: absolute;
+  background: #ffffff;
+  box-shadow: 4px 12px 32px rgba(93, 106, 131, 0.1);
+  border-radius: 12px;
+}
+
+.actionOptionItem {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
 }

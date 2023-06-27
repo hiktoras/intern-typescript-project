@@ -10,11 +10,11 @@
   width: 250px;
   border-right: 1px solid #e2e8f0;
   background: #fafafa;
-  height: 1150px;
+  height: 100vh;
 }
 
 .footer {
-  margin-top: 430px;
+  margin-top: 270px;
 }
 
 ul {

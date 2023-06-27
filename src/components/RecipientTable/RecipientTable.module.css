@@ -19,6 +19,8 @@
 }
 .tableHead {
   text-align: left;
+  border-top: 1px solid #e2e8f0;
+  padding: 25px 0px;
 }
 
 .tableHeadRow {
@@ -29,6 +31,8 @@
   line-height: 150%;
   letter-spacing: 0.2px;
   color: #718096;
+
+
 }
 
 .name {
@@ -43,6 +47,7 @@
   align-items: center;
   letter-spacing: 0.2px;
   color: #1a202c;
+margin-left: 16px;
 }
 
 .header {
@@ -87,6 +92,10 @@
   border-radius: 12px;
   color: #fff;
   margin-left: auto;
+  border: none;
+  padding: 0px 30px;
+margin-right: 10px;
+
 }
 .priceFilter {
   position: relative;
@@ -161,7 +170,7 @@
 
 .tableRow {
   padding-bottom: 50px;
-  height: 90px;
+
 }
 .tableFilter {
   display: flex;
@@ -196,4 +205,13 @@
 .searchBox {
   border: none;
   border-radius: 15px;
+}
+
+.dimension {
+  padding: 16px 0px;
+}
+
+.curIcon {
+margin-right: 8px;
+
 }

@@ -10,6 +10,15 @@ import { ReactComponent as CheckBoxIcon } from "../../assets/icons/checkbox.svg"
 import { ReactComponent as CheckedBoxIcon } from "../../assets/icons/checked-box.svg";
 import { ReactComponent as CreateInvoiceIcon } from "../../assets/icons/create-invoice.svg";
 
+import { ReactComponent as CopyIcon } from "../../assets/icons/copy.svg";
+import { ReactComponent as PrinterIcon } from "../../assets/icons/printer.svg";
+import { ReactComponent as DownloadIcon } from "../../assets/icons/file-download.svg";
+import { ReactComponent as ShareIcon } from "../../assets/icons/share-to.svg";
+import { ReactComponent as ArchiveIcon } from "../../assets/icons/archive.svg";
+
+
+
+
 const AmountFormat = (currency: string, amount: number) => {
   let prefix: string;
 
@@ -50,6 +59,17 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
   const [sortAmount, setSortAmount] = useState("inactive");
   const [sortStatus, setSortStatus] = useState("inactive");
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
+  const [actionsRow, setActionsRow] = useState(0);
+
+
+  const handleSetActionsRow = (id: number) => {
+    if (id === actionsRow) {
+      setActionsRow(0);
+    } else {
+      setActionsRow(id);
+    }
+
+  };
 
   const toggleRowSelection = (id: number) => {
     if (selectedRows.includes(id)) {
@@ -95,19 +115,6 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
   const handleFilterApply = () => {
     setIsAmountFiltered(!isAmountFiltered);
 
-    // const filteredData = data.filter((item) => {
-    //   const itemPrice = parseFloat(item.price.toString());
-    //   const minPriceValue = minPrice ? parseFloat(minPrice) : 0;
-    //   const maxPriceValue = maxPrice ? parseFloat(maxPrice) : Infinity;
-
-    //   return (
-    //     (!currency || item.currency === currency) &&
-    //     itemPrice >= minPriceValue &&
-    //     itemPrice <= maxPriceValue
-    //   );
-    // });
-
-    // setData(filteredData);
     setIsOpen(false);
   };
 
@@ -187,7 +194,6 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
 
       return 0;
     })
-
     .sort((a, b) => {
       if (sortAmount === "asc") {
         return a.price >= b.price ? 1 : -1;
@@ -198,7 +204,6 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
 
       return 0;
     })
-
     .sort((a, b) => {
       if (sortStatus === "asc") {
         return a.status >= b.status ? 1 : -1;
@@ -375,9 +380,9 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
             <tr className={styles.tableRowBox}>
               <td>
                 {selectedRows.includes(nData.id) ? (
-                  <CheckBoxIcon onClick={() => toggleRowSelection(nData.id)} />
+                  <CheckedBoxIcon onClick={() => toggleRowSelection(nData.id)} />
                 ) : (
-                  <CheckedBoxIcon
+                  <CheckBoxIcon
                     onClick={() => toggleRowSelection(nData.id)}
                   />
                 )}
@@ -406,20 +411,52 @@ const InvoiceTable = ({ invoiceDataList }: InvoiceTableProps) => {
               <td>
                 <div
                   className={
-                    nData.status === "Success"
-                      ? styles.successStatusBox
-                      : nData.status === "Failed"
-                      ? styles.failedStatusBox
-                      : styles.pendingStatusBox
+                    nData.status === "Unpaid"
+                      ? styles.unpaidStatusBox
+                      : nData.status === "Pending"
+                        ? styles.pendingStatusBox
+                        : nData.status === "Refund"
+                          ? styles.refundStatusBox
+                          : nData.status === "Success"
+                            ? styles.successStatusBox
+                            : styles.paidStatusBox
+
                   }
                 >
                   <p className={styles.status}>{nData.status}</p>
                 </div>
               </td>
               <td>
-                <button className={styles.details}>
+                <button onClick={() => handleSetActionsRow(nData.id)} className={styles.details}>
                   <DotsHorizontalIcon />
                 </button>
+                {actionsRow == nData.id && (
+                  <div>
+
+                    <div className={styles.actionOptions}>
+                      <div className={styles.actionOptionItem}>
+                        <CopyIcon />
+                        <a href="account-details">Copy</a>
+                      </div>
+                      <div className={styles.actionOptionItem}>
+                        <PrinterIcon/> 
+                        <a href="account-settings">Print</a></div>
+                      <div className={styles.actionOptionItem}>
+                        <DownloadIcon/>
+                        <a href="account-settings">Download PDF</a>
+                        </div>
+                      <div className={styles.actionOptionItem}>
+                        <ShareIcon/>
+                        <a href="account-settings">Share Link</a>
+                        </div>
+                      <div className={styles.actionOptionItem}>
+                        <ArchiveIcon/>
+                        <a href="account-settings">Archive</a>
+                        </div>
+
+                    </div>
+                  </div>
+                )}
               </td>
             </tr>
           ))}

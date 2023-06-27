@@ -42,10 +42,52 @@
   flex-direction: column;
   align-items: flex-start;
   border: 1px solid #e2e8f0;
-  padding: 16px;
-  gap: 24px;
+  padding: 8px 16px;
+  gap: 16px;
   position: absolute;
+  right: 8px;
   background: #ffffff;
   box-shadow: 4px 12px 32px rgba(93, 106, 131, 0.1);
   border-radius: 12px;
+  width: 232px;
+}
+.containerTop {
+  border-bottom: 1px solid #edf2f7;
+  width: 200px;
+}
+.alesia {
+  font-weight: 800;
+  line-height: 150%;
+  letter-spacing: 0.2px;
+  color: #1a202c;
+}
+.info {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.4px;
+  color: #718096;
+}
+.containerBottom {
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid #edf2f7;
+  width: 200px;
+}
+.darkMode {
+  font-size: 14px;
+  font-family: Manrope;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0.2px;
+  margin-right: auto;
+}
+.containerItem {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+.toggle {
+  margin-top: 12px;
 }

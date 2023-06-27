@@ -100,6 +100,7 @@
 .profileCompleteRow {
   display: flex;
   flex-direction: row;
+  gap: 25px;
 }
 .profileCompleteText {
   width: 151px;
@@ -137,10 +138,14 @@
   align-items: center;
   padding: 8px;
   gap: 10px;
-  width: 180px;
+  width: 239px;
   height: 40px;
   background: #ffffff;
   border-radius: 8px;
+  border: none;
+  margin: 24px;
+  color: #194bfb;
+  
 }
 .alesiaInfo {
   display: flex;
@@ -159,6 +164,8 @@
   background: #194bfb;
   border-radius: 8px;
   color: #ffff;
+  border: none;
+
 }
 
 .deleteButton {
@@ -174,9 +181,19 @@
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
+
+
 }
 .deleteButton,
 .uploadButton {
   margin-left: 1rem;
   margin-top: 1.5rem;
+}
+
+.progress {
+  width: 64px;
+  height: 64px;
+margin-top: 20px;
+margin-left: 1rem;
+
 }

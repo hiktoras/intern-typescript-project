@@ -16,30 +16,33 @@ const isNewInvoicePage = (path: string) => {
 function Layout() {
   const location = useLocation();
   return (
-    <section className={styles.main}>
-      <aside className={styles.sidebar}>
-        <section className={styles.logo}>
-          <CategoryIconNew />
-        </section>
-        <section>
-          <NavMenu navMenuDataList={topNavMenuDataList} />
-        </section>
-        <section className={styles.footer}>
-          <NavMenu navMenuDataList={bottomNavMenuDataList} />
-        </section>
-      </aside>
-      <div className={styles.middle}>
-        {!isNewInvoicePage(location.pathname) && (
-          <header>
-            <Header userData={UserInfoData} />
-          </header>
-        )}
+    <div className={styles.main}>
+       <aside className={styles.sidebar}>
+      <section className={styles.logo}>
+        <CategoryIconNew />
+      </section>
+      <section>
+        <NavMenu navMenuDataList={topNavMenuDataList} />
+      </section>
+      <section className={styles.footer}>
+        <NavMenu navMenuDataList={bottomNavMenuDataList} />
+      </section>
+    </aside>
+      <section >
+   
+    <div className={styles.middle}>
+      {!isNewInvoicePage(location.pathname) && (
+        <header>
+          <Header userData={UserInfoData} />
+        </header>
+      )}
 
-        <main>
-          <Outlet />
-        </main>
-      </div>
-    </section>
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  </section></div>
+    
   );
 }
 

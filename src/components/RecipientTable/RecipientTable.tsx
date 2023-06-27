@@ -4,14 +4,14 @@ import { useState } from "react";
 import { ReactComponent as ArrowsIcon } from "../../assets/icons/arrows.svg";
 import { ReactComponent as FilterIcon } from "../../assets/icons/filter.svg";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
-import Guy from "../../assets/images/guy.jpg";
-import Roselle from "../../assets/images/roselle.jpg";
-import Marielle from "../../assets/images/marielle.jpg";
-import Cyndy from "../../assets/images/cyndy.jpg";
-import Darcel from "../../assets/images/darcel.jpg";
-import Tanner from "../../assets/images/tanner.jpg";
-import Francene from "../../assets/images/francene.jpg";
-import Elmer from "../../assets/images/elmer.jpg";
+import Guy from "../../assets/images/guy.png";
+import Roselle from "../../assets/images/roselle.png";
+import Marielle from "../../assets/images/marielle.png";
+import Cyndy from "../../assets/images/cyndy.png";
+import Darcel from "../../assets/images/darcel.png";
+import Tanner from "../../assets/images/tanner.png";
+import Francene from "../../assets/images/francene.png";
+import Elmer from "../../assets/images/elmer.png";
 import NewRecipient from "../NewRecipient/NewRecipient";
 import USD from "../../assets/images/usd.jpg";
 import EUR from "../../assets/images/eur.jpg";
@@ -41,11 +41,11 @@ const Icon = (text: string) => {
 const CurIcon = (text: string) => {
   switch (text) {
     case "EUR":
-      return <img src={EUR} alt="guy" />;
+      return <img className={styles.curIcon} src={EUR} alt="guy" />;
     case "USD":
-      return <img src={USD} alt="antonio" />;
+      return <img className={styles.curIcon} src={USD} alt="antonio" />;
     case "GBP":
-      return <img src={GBP} alt="antonio" />;
+      return <img className={styles.curIcon} src={GBP} alt="antonio" />;
   }
 };
 
@@ -214,24 +214,24 @@ const RecipientTable = ({ RecipientDataList }: RecipientProps) => {
         <tbody>
           {filteredList.map((nData) => (
             <tr className={styles.tableRow}>
-              <td>
+              <td className={styles.dimension}>
                 <div className={styles.nameColumn}>
                   <div className={styles.iconBox}>{Icon(nData.imageName)}</div>
                   <p className={styles.name}>{nData.name}</p>
                 </div>
               </td>
-              <td>
+              <td className={styles.dimension}>
                 <p className={styles.secondaryText}>{nData.email}</p>
               </td>
-              <td>
+              <td className={styles.dimension}>
                 <p className={styles.secondaryText}>{nData.accountType}</p>
               </td>
-              <td>
+              <td className={styles.dimension}>
                 <div className={styles.secondaryText}>
                   {CurIcon(nData.currency)} {nData.currency}
                 </div>
               </td>
-              <td>
+              <td className={styles.dimension}>
                 <p className={styles.secondaryText}>{nData.date}</p>
               </td>
             </tr>

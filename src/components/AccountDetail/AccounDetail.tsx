@@ -3,21 +3,24 @@ import ProgressImg from "../../assets/images/progress.png";
 import Alesia from "../../assets/images/alesia-details.jpg";
 import SettingCard from "../SettingCard/SettingCard";
 
-export interface AccountDetailProps {}
-const AccountDetail = ({}: AccountDetailProps) => {
+export interface AccountDetailProps { }
+const AccountDetail = ({ }: AccountDetailProps) => {
   return (
     <div className={styles.layout}>
       <div className={styles.settingNav}>
         <div className={styles.profileCompleteBox}>
           <div className={styles.profileCompleteRow}>
-            <img src={ProgressImg} alt="usd" />
+            <img className={styles.progress} src={ProgressImg} alt="usd" />
             <div>
-              <p className={styles.profileCompleteTitle}>Complete profile</p>
-              <p className={styles.profileCompleteText}>
-                Complete your profile to unlock all features
+            <p className={styles.profileCompleteTitle}>Complete profile</p>
+            <p className={styles.profileCompleteText}>
+              Complete your profile to unlock all features
               </p>
-              <button className={styles.verifyButton}>Verify identity</button>
             </div>
+
+          </div>
+          <div >
+            <button className={styles.verifyButton}>Verify identity</button>
           </div>
         </div>
         <SettingCard
